@@ -4,6 +4,7 @@ import "./globals.css";
 import { Providers } from "./provider";
 import MobileNav from "../components/MobileNav";
 import SideBar from "@/components/SideBar";
+import NextNProgressBar from "@/components/NextNProgress";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,6 +28,7 @@ export default function RootLayout({
         className={inter.className}
       >
         <Providers>
+          <NextNProgressBar />
           <SideBar />
           {children}
           <MobileNav />
