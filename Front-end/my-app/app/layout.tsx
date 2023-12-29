@@ -21,8 +21,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="light">
-      <body style={{ fontFamily: "vazir" }} className={inter.className}>
+    <html
+      lang='en'
+      className='light'
+    >
+      <body
+        style={{ fontFamily: "vazir" }}
+        className={`${inter.className} w-full`}
+      >
         <Providers>
           <NextNProgressBar />
           <SideBar />
