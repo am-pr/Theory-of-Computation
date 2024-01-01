@@ -1,14 +1,15 @@
 "use client";
 import { Button, Input, Select, SelectItem } from "@nextui-org/react";
-import { memo, useState } from "react";
+import { ChangeEvent, memo, useState } from "react";
 
 //TODO User shouldn't be able to enter repetitive states with same names
 //TODO User shouldn't be able to enter repetitive alphabets with same names
 //TODO we should remove the empty indexes because the user uses a lot of commas
+//TODO if the user change the selectBox after entering an initial state, it doesn't replace the new transitions. instead it adds to them :/
 
 type drawingSteps = 1 | 2 | 3;
 
-const MachineInfo = () => {
+const MachineInfo = ({ redirectPathname }: { redirectPathname: string }) => {
   const [drawingStep, setDrawingStep] = useState<drawingSteps>(1);
   const [machineInfo, setMachineInfo] = useState({
     states: [""],
@@ -16,6 +17,13 @@ const MachineInfo = () => {
     initialState: "",
     finalStates: [""],
   });
+  const [transitions, setTransitions] = useState([
+    {
+      from: "",
+      to: "",
+      symbol: "",
+    },
+  ]);
 
   return (
     <div className="w-full mx-1 rounded-tl-[10px] rounded-tr-[10px] rounded-br-[10px] rounded-bl-[10px] border-b-2 border-x-2 border-darkColor">
@@ -172,7 +180,16 @@ const MachineInfo = () => {
             <span className="text-primaryColor font-semibold">مرحله بعدی</span>
           </Button>
           <Button
-            onPress={() => setDrawingStep(1)}
+            onPress={() => {
+              setDrawingStep(1);
+              setMachineInfo({
+                states: [""],
+                alphabets: [""],
+                initialState: "",
+                finalStates: [],
+              });
+              setTransitions([]);
+            }}
             className="ml-4 h-12 lg:w-56 w-48 mb-9 bg-lightColor border-2 border-darkMediumColor"
           >
             <span className="text-darkColor font-semibold">مرحله قبل</span>
@@ -180,6 +197,81 @@ const MachineInfo = () => {
         </>
       )}
       {/* _________________________________________________________________ */}
+
+      {/* third step for getting machine info ↓ */}
+
+      {drawingStep == 3 && (
+        <section className="mb-20">
+          <span
+            onClick={() => console.log(machineInfo)}
+            className="block text-right mt-6 mr-4 font-bold"
+          >
+            گام سوم - جدول انتقال ها
+          </span>
+          <table className="w-full mt-9 border rounded-xl border-darkColor">
+            <thead className="bg-[#D9D9D9] border-collapse">
+              <tr>
+                <th>States</th>
+                {machineInfo.alphabets.map((alphabet) => {
+                  return <th key={alphabet}>{alphabet}</th>;
+                })}
+              </tr>
+            </thead>
+            <tbody>
+              {machineInfo.states.map((state) => (
+                <tr>
+                  <th scope="row" key={state} className="bg-[#D9D9D9]">
+                    {state}
+                  </th>
+                  {machineInfo.alphabets.map((alphabet) => (
+                    <td>
+                      <Select
+                        aria-label={`${state}-${alphabet}`}
+                        onChange={(event) =>
+                          setTransitions([
+                            ...transitions,
+                            {
+                              from: state,
+                              to: event.target.value,
+                              symbol: alphabet,
+                            },
+                          ])
+                        }
+                      >
+                        {machineInfo.states.map((state) => (
+                          <SelectItem key={state} value={state}>
+                            {state}
+                          </SelectItem>
+                        ))}
+                      </Select>
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          {/* On this button the query will be sent */}
+          <Button
+            onPress={() =>
+              console.log(
+                "Transitions : ",
+                transitions,
+                "MachineInfo : ",
+                machineInfo
+              )
+            }
+            className="ml-4 h-12 lg:w-56 w-48 mb-9 bg-darkColor"
+          >
+            <span className="text-primaryColor font-semibold">مرحله بعدی</span>
+          </Button>
+          <Button
+            onPress={() => setDrawingStep(2)}
+            className="ml-4 h-12 lg:w-56 w-48 my-9 bg-lightColor border-2 border-darkMediumColor"
+          >
+            <span className="text-darkColor font-semibold">مرحله قبل</span>
+          </Button>
+        </section>
+      )}
     </div>
   );
 };
