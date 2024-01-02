@@ -8,6 +8,11 @@ import { ChangeEvent, memo, useState } from "react";
 //TODO if the user change the selectBox after entering an initial state, it doesn't replace the new transitions. instead it adds to them :/
 
 type drawingSteps = 1 | 2 | 3;
+type Transition = {
+  from: string;
+  to: string;
+  symbol: string;
+};
 
 const MachineInfo = ({ redirectPathname }: { redirectPathname: string }) => {
   const [drawingStep, setDrawingStep] = useState<drawingSteps>(1);
@@ -17,13 +22,9 @@ const MachineInfo = ({ redirectPathname }: { redirectPathname: string }) => {
     initialState: "",
     finalStates: [""],
   });
-  const [transitions, setTransitions] = useState([
-    {
-      from: "",
-      to: "",
-      symbol: "",
-    },
-  ]);
+  const [transitions, setTransitions] = useState<Transition[]>([]);
+
+  console.log(transitions);
 
   return (
     <div className="w-full mx-1 rounded-tl-[10px] rounded-tr-[10px] rounded-br-[10px] rounded-bl-[10px] border-b-2 border-x-2 border-darkColor">
@@ -208,10 +209,10 @@ const MachineInfo = ({ redirectPathname }: { redirectPathname: string }) => {
           >
             گام سوم - جدول انتقال ها
           </span>
-          <table className="w-full mt-9 border rounded-xl border-darkColor">
-            <thead className="bg-[#D9D9D9] border-collapse">
+          <table className="w-full mt-9 border border-collapse rounded-xl border-darkColor">
+            <thead className="bg-[#D9D9D9] h-16">
               <tr>
-                <th>States</th>
+                <th className="lg:text-xl md:text-lg">States</th>
                 {machineInfo.alphabets.map((alphabet) => {
                   return <th key={alphabet}>{alphabet}</th>;
                 })}
@@ -226,17 +227,24 @@ const MachineInfo = ({ redirectPathname }: { redirectPathname: string }) => {
                   {machineInfo.alphabets.map((alphabet) => (
                     <td>
                       <Select
+                        name={`${state}-${alphabet}`}
                         aria-label={`${state}-${alphabet}`}
-                        onChange={(event) =>
-                          setTransitions([
-                            ...transitions,
+                        onChange={(event) => {
+                          const selectedState = event.target.value;
+
+                          const updatedTransitions = transitions.filter(
+                            (t) => !(t.from === state && t.symbol === alphabet)
+                          );
+
+                          return setTransitions([
+                            ...updatedTransitions,
                             {
                               from: state,
-                              to: event.target.value,
+                              to: selectedState,
                               symbol: alphabet,
                             },
-                          ])
-                        }
+                          ]);
+                        }}
                       >
                         {machineInfo.states.map((state) => (
                           <SelectItem key={state} value={state}>
