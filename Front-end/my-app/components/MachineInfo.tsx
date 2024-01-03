@@ -27,7 +27,7 @@ const MachineInfo = ({ redirectPathname }: { redirectPathname: string }) => {
   console.log(transitions);
 
   return (
-    <div className="w-full mx-1 rounded-tl-[10px] rounded-tr-[10px] rounded-br-[10px] rounded-bl-[10px] border-b-2 border-x-2 border-darkColor">
+    <div className="w-full md:mx-1 rounded-tl-[10px] rounded-tr-[10px] rounded-br-[10px] rounded-bl-[10px] border-b-2 border-x-2 border-darkColor">
       <header className="text-xl w-full text-right font-bold rounded-t-[10px] text-white bg-darkMediumColor">
         <span className="mr-6 py-4 block">رسم ماشین</span>
       </header>

@@ -3,16 +3,16 @@ import MainFrame from "@/components/MainFrame";
 import { Chip } from "@nextui-org/react";
 
 const StringAccepter = () => {
-  return (
+  return (<>
     <MainFrame>
       <header className="flex justify-between">
         <Chip
           classNames={{ base: "bg-darkMediumColor", content: "text-white" }}
           variant="solid"
-        >
+          >
           مرحله ۱ از ۲
         </Chip>
-        <h1 className="text-2xl font-black text-darkColor">پذیرش رشته</h1>
+        <h1 className="text-base md:text-2xl font-black text-darkColor hidden md:block ">پذیرش رشته</h1>
       </header>
       <span className="font-medium mt-9 block text-right">
         :پذیرش رشته شامل دو گام است
@@ -24,6 +24,12 @@ const StringAccepter = () => {
       </span>
       <MachineInfo redirectPathname="/Paziresh/result" />
     </MainFrame>
+    <main className="md:hidden">
+      <MainFrame>
+        123
+      </MainFrame>
+    </main>
+          </>
   );
 };
 
