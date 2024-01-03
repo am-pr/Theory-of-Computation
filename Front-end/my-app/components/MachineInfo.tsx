@@ -29,19 +29,19 @@ const MachineInfo = ({ redirectPathname }: { redirectPathname: string }) => {
   return (
     <div className="w-full md:mx-1 rounded-tl-[10px] rounded-tr-[10px] rounded-br-[10px] rounded-bl-[10px] border-b-2 border-x-2 border-darkColor">
       <header className="text-xl w-full text-right font-bold rounded-t-[10px] text-white bg-darkMediumColor">
-        <span className="mr-6 py-4 block">رسم ماشین</span>
+        <span className="md:mr-6 mr-3.5 md:text-xl text-base py-4 block">رسم ماشین</span>
       </header>
-      <span className="block mt-6 mr-4 text-right">
+      <span className="block md:mt-6 mt-4  md:mr-4 mr-2.5 text-right md:text-base text-xs ">
         ماشین را در سه مرحله رسم میکنیم
       </span>
 
       {/* From here the pages go dynamic : */}
       {drawingStep == 1 && (
         <>
-          <span className="block text-right mt-6 mr-4 font-bold">
+          <span className="block text-right md:text-base text-sm mt-6 md:mr-4 mr-2 font-bold">
             گام اول - ورود استیت ها و الفبا
           </span>
-          <div className="text-right mr-4 mt-9 flex flex-row-reverse items-center">
+          <div className="text-right md:mr-4 mr-3 md:mt-9 mt-6  flex flex-row-reverse items-center">
             <span className="font-bold"> :ورودی استیت ها</span>
             {"  "}
             <span className="text-sm font-normal">
@@ -64,7 +64,7 @@ const MachineInfo = ({ redirectPathname }: { redirectPathname: string }) => {
               placeholder="q1,q2,..."
             />
           </div>
-          <div className="text-right mr-4 mt-9 flex flex-row-reverse items-center">
+          <div className="text-right md:mr-4 mr-3 mt-9 flex flex-row-reverse items-center">
             <span className="font-bold"> :ورودی زبان</span>
             {"  "}
             <span className="text-sm font-normal">
