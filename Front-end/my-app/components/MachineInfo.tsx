@@ -96,7 +96,7 @@ const MachineInfo = ({ redirectPathname }: { redirectPathname: string }) => {
         </>
       )}
 
-      {/* _________________________________________________________________ */}
+      {/* ________________npm_________________________________________________ */}
 
       {/* Second step for getting machine info ↓ */}
 
