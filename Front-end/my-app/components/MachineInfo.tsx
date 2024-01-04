@@ -1,6 +1,7 @@
 "use client";
 import { useMachineInfoStore, useTransitionStore } from "@/app/store";
 import { Button, Input, Select, SelectItem } from "@nextui-org/react";
+import { useRouter } from "next/navigation";
 import { ChangeEvent, memo, useState } from "react";
 
 //TODO User shouldn't be able to enter repetitive states with same names
@@ -9,11 +10,6 @@ import { ChangeEvent, memo, useState } from "react";
 //TODO if the user change the selectBox after entering an initial state, it doesn't replace the new transitions. instead it adds to them :/
 
 type drawingSteps = 1 | 2 | 3;
-type Transition = {
-  from: string;
-  to: string;
-  symbol: string;
-};
 
 const MachineInfo = ({ redirectPathname }: { redirectPathname: string }) => {
   // #region zustand states
@@ -32,6 +28,8 @@ const MachineInfo = ({ redirectPathname }: { redirectPathname: string }) => {
 
   // #endregion
   const [drawingStep, setDrawingStep] = useState<drawingSteps>(1);
+
+  const router = useRouter();
 
   return (
     <div className="w-full mx-1 rounded-tl-[10px] rounded-tr-[10px] rounded-br-[10px] rounded-bl-[10px] border-b-2 border-x-2 border-darkColor">
@@ -165,7 +163,7 @@ const MachineInfo = ({ redirectPathname }: { redirectPathname: string }) => {
 
           <Button
             onPress={() => setDrawingStep(3)}
-            className="ml-4 h-12 lg:w-56 w-48 mb-9 bg-darkColor"
+            className="ml-4 h-12 mt-10 lg:w-56 w-48 mb-9 bg-darkColor"
           >
             <span className="text-primaryColor font-semibold">مرحله بعدی</span>
           </Button>
@@ -175,7 +173,7 @@ const MachineInfo = ({ redirectPathname }: { redirectPathname: string }) => {
               reset();
               resetTransitions();
             }}
-            className="ml-4 h-12 lg:w-56 w-48 mb-9 bg-lightColor border-2 border-darkMediumColor"
+            className="ml-4 h-12 mt-10 lg:w-56 w-48 mb-9 bg-lightColor border-2 border-darkMediumColor"
           >
             <span className="text-darkColor font-semibold">مرحله قبل</span>
           </Button>
@@ -234,9 +232,9 @@ const MachineInfo = ({ redirectPathname }: { redirectPathname: string }) => {
           </table>
           {/* On this button the query will be sent */}
           <Button
-            onPress={() =>
+            onPress={() => {
               console.log(
-                "Transitions : ",
+                "Transitions Before the redirect : ",
                 transitions,
                 "\n",
                 "\nstates :",
@@ -247,8 +245,9 @@ const MachineInfo = ({ redirectPathname }: { redirectPathname: string }) => {
                 initialState,
                 "\nfinalStates :",
                 finalStates
-              )
-            }
+              );
+              return router.push(redirectPathname);
+            }}
             className="ml-4 h-12 lg:w-56 w-48 mb-9 bg-darkColor"
           >
             <span className="text-primaryColor font-semibold">مرحله بعدی</span>
