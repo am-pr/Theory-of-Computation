@@ -1,8 +1,4 @@
 "use client";
-<<<<<<< HEAD
-=======
-import { useMachineInfoStore, useTransitionStore } from "@/app/store";
->>>>>>> 874ae29fd02d08c71e1548004aef8aa5cbc5e87d
 import { Button, Input, Select, SelectItem } from "@nextui-org/react";
 import { ChangeEvent, memo, useState } from "react";
 
@@ -20,7 +16,6 @@ type Transition = {
 
 const MachineInfo = ({ redirectPathname }: { redirectPathname: string }) => {
   const [drawingStep, setDrawingStep] = useState<drawingSteps>(1);
-<<<<<<< HEAD
   const [machineInfo, setMachineInfo] = useState({
     states: [""],
     alphabets: [""],
@@ -37,32 +32,16 @@ const MachineInfo = ({ redirectPathname }: { redirectPathname: string }) => {
         <span className="md:mr-6 mr-3.5 md:text-xl text-base py-4 block">رسم ماشین</span>
       </header>
       <span className="block md:mt-6 mt-4  md:mr-4 mr-2.5 text-right md:text-base text-xs ">
-=======
-
-  return (
-    <div className="w-full mx-1 rounded-tl-[10px] rounded-tr-[10px] rounded-br-[10px] rounded-bl-[10px] border-b-2 border-x-2 border-darkColor">
-      <header className="text-xl w-full text-right font-bold rounded-t-[10px] text-white bg-darkMediumColor">
-        <span className="mr-6 py-4 block">رسم ماشین</span>
-      </header>
-      <span className="block mt-6 mr-4 text-right">
->>>>>>> 874ae29fd02d08c71e1548004aef8aa5cbc5e87d
         ماشین را در سه مرحله رسم میکنیم
       </span>
 
       {/* From here the pages go dynamic : */}
       {drawingStep == 1 && (
         <>
-<<<<<<< HEAD
           <span className="block text-right md:text-base text-sm mt-6 md:mr-4 mr-2 font-bold">
             گام اول - ورود استیت ها و الفبا
           </span>
           <div className="text-right md:mr-4 mr-3 md:mt-9 mt-6  flex flex-row-reverse items-center">
-=======
-          <span className="block text-right mt-6 mr-4 font-bold">
-            گام اول - ورود استیت ها و الفبا
-          </span>
-          <div className="text-right mr-4 mt-9 flex flex-row-reverse items-center">
->>>>>>> 874ae29fd02d08c71e1548004aef8aa5cbc5e87d
             <span className="font-bold"> :ورودی استیت ها</span>
             {"  "}
             <span className="text-sm font-normal">
@@ -85,11 +64,7 @@ const MachineInfo = ({ redirectPathname }: { redirectPathname: string }) => {
               placeholder="q1,q2,..."
             />
           </div>
-<<<<<<< HEAD
           <div className="text-right md:mr-4 mr-3 mt-9 flex flex-row-reverse items-center">
-=======
-          <div className="text-right mr-4 mt-9 flex flex-row-reverse items-center">
->>>>>>> 874ae29fd02d08c71e1548004aef8aa5cbc5e87d
             <span className="font-bold"> :ورودی زبان</span>
             {"  "}
             <span className="text-sm font-normal">
@@ -139,23 +114,16 @@ const MachineInfo = ({ redirectPathname }: { redirectPathname: string }) => {
           </div>
           <div className="mx-4 mt-2">
             <Select
-<<<<<<< HEAD
               onChange={(e) =>
                 setMachineInfo({ ...machineInfo, initialState: e.target.value })
               }
-=======
-              onChange={(e) => setInitialState([e.target.value])}
->>>>>>> 874ae29fd02d08c71e1548004aef8aa5cbc5e87d
               labelPlacement="outside"
               classNames={{
                 value: "text-center text-lg",
                 trigger: "bg-[#D9D9D9] h-12",
                 label: "font-semibold pl-10 lg:pl-20",
               }}
-<<<<<<< HEAD
               label={machineInfo.initialState == "" ? "انتخاب کنید" : ""}
-=======
->>>>>>> 874ae29fd02d08c71e1548004aef8aa5cbc5e87d
               aria-label="initial state"
             >
               {machineInfo?.states.map((state) => (
@@ -180,26 +148,18 @@ const MachineInfo = ({ redirectPathname }: { redirectPathname: string }) => {
             <Select
               labelPlacement="outside"
               selectionMode="multiple"
-<<<<<<< HEAD
               onChange={(e) =>
                 setMachineInfo({
                   ...machineInfo,
                   finalStates: e.target.value.split(","),
                 })
               }
-=======
-              onChange={(e) => addFinalStates(e.target.value.split(","))}
->>>>>>> 874ae29fd02d08c71e1548004aef8aa5cbc5e87d
               classNames={{
                 value: "text-center text-lg",
                 trigger: "bg-[#D9D9D9] h-12",
                 label: "font-semibold pl-10 lg:pl-20",
               }}
-<<<<<<< HEAD
               label={machineInfo.finalStates.length < 2 ? "انتخاب کنید" : ""}
-=======
-              label={finalStates.length < 2 ? "انتخاب کنید" : ""}
->>>>>>> 874ae29fd02d08c71e1548004aef8aa5cbc5e87d
               aria-label="final states"
             >
               {machineInfo?.states.map((state) => (
@@ -243,31 +203,23 @@ const MachineInfo = ({ redirectPathname }: { redirectPathname: string }) => {
 
       {drawingStep == 3 && (
         <section className="mb-20">
-<<<<<<< HEAD
           <span
             onClick={() => console.log(machineInfo)}
             className="block text-right mt-6 mr-4 font-bold"
           >
-=======
-          <span className="block text-right mt-6 mr-4 font-bold">
->>>>>>> 874ae29fd02d08c71e1548004aef8aa5cbc5e87d
             گام سوم - جدول انتقال ها
           </span>
           <table className="w-full mt-9 border border-collapse rounded-xl border-darkColor">
             <thead className="bg-[#D9D9D9] h-16">
               <tr>
                 <th className="lg:text-xl md:text-lg">States</th>
-<<<<<<< HEAD
                 {machineInfo.alphabets.map((alphabet) => {
-=======
-                {alphabets.map((alphabet) => {
->>>>>>> 874ae29fd02d08c71e1548004aef8aa5cbc5e87d
                   return <th key={alphabet}>{alphabet}</th>;
                 })}
               </tr>
             </thead>
             <tbody>
-              {states.map((state) => (
+              {machineInfo.states.map((state) => (
                 <tr>
                   <th scope="row" key={state} className="bg-[#D9D9D9]">
                     {state}
@@ -279,7 +231,6 @@ const MachineInfo = ({ redirectPathname }: { redirectPathname: string }) => {
                         aria-label={`${state}-${alphabet}`}
                         onChange={(event) => {
                           const selectedState = event.target.value;
-<<<<<<< HEAD
 
                           const updatedTransitions = transitions.filter(
                             (t) => !(t.from === state && t.symbol === alphabet)
@@ -296,17 +247,6 @@ const MachineInfo = ({ redirectPathname }: { redirectPathname: string }) => {
                         }}
                       >
                         {machineInfo.states.map((state) => (
-=======
-                          //TODO filter the new transitions here and remove the old ones
-                          addTransition({
-                            from: state,
-                            symbol: alphabet,
-                            to: selectedState,
-                          });
-                        }}
-                      >
-                        {states.map((state) => (
->>>>>>> 874ae29fd02d08c71e1548004aef8aa5cbc5e87d
                           <SelectItem key={state} value={state}>
                             {state}
                           </SelectItem>
@@ -324,20 +264,8 @@ const MachineInfo = ({ redirectPathname }: { redirectPathname: string }) => {
               console.log(
                 "Transitions : ",
                 transitions,
-<<<<<<< HEAD
                 "MachineInfo : ",
                 machineInfo
-=======
-                "\n",
-                "\nstates :",
-                states,
-                "\nalphabets :",
-                alphabets,
-                "\ninitialState :",
-                initialState,
-                "\nfinalStates :",
-                finalStates
->>>>>>> 874ae29fd02d08c71e1548004aef8aa5cbc5e87d
               )
             }
             className="ml-4 h-12 lg:w-56 w-48 mb-9 bg-darkColor"
