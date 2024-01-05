@@ -42,7 +42,7 @@ export const useMachineInfoStore = create<MachineState>()((set) => ({
 type Transition = {
   from: string;
   to: string;
-  symbol: string;
+  label: string;
 };
 
 type TransitionStoreState = {
@@ -55,8 +55,8 @@ export const useTransitionStore = create<TransitionStoreState>((set) => ({
   transitions: [],
   addTransition: (newTransition: Transition) =>
     set((state) => {
-      if(state.transitions.some(t => t.from === newTransition.from && t.symbol === newTransition.symbol)){
-       const updatedTransitions = state.transitions.filter((t)=> t.from !== newTransition.from || t.symbol !== newTransition.symbol)
+      if(state.transitions.some(t => t.from === newTransition.from && t.label === newTransition.label)){
+       const updatedTransitions = state.transitions.filter((t)=> t.from !== newTransition.from || t.label !== newTransition.label)
        return { transitions: [...updatedTransitions, newTransition] };
       }
       return { transitions: [...state.transitions, newTransition] };
