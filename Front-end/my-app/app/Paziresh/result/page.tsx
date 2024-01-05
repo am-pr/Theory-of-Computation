@@ -28,7 +28,6 @@ const Result = () => {
   //TODO make an optimized transitions array so if the 'from' and 'to' keys are the same it will make it one object : {from:'A' , to:'A' , label:'a,b'}
   // or I can make this changes in the store
   const optimizedState = states.map((state) => ({ id: state, label: state }));
-  console.log(optimizedState);
 
   return (
     <MainFrame>

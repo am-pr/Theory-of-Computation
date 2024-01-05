@@ -1,14 +1,26 @@
+// @ts-nocheck
 "use client";
-
+import { useTransitionStore } from "@/app/store";
 import { useEffect, createRef } from "react";
 import * as vis from "vis-network/standalone";
-//@ts-ignore
-const MachineDrawer = ({ transitions, states, initialState, finalStates }) => {
+
+type MachineDrawerProps = {
+  states: { id: string; label: string }[];
+  finalStates: string[];
+  initialState: [string];
+  transitions: { from: string; to: string; label: string }[];
+};
+
+const MachineDrawer = ({
+  transitions,
+  states,
+  initialState,
+  finalStates,
+}: MachineDrawerProps) => {
   const networkRef = createRef();
 
   useEffect(() => {
     const nodes = new vis.DataSet(states);
-    // @ts-ignore
     const edges = new vis.DataSet(transitions);
 
     const container = networkRef.current;
@@ -20,13 +32,12 @@ const MachineDrawer = ({ transitions, states, initialState, finalStates }) => {
           size: 10,
         },
         margin: {
-          top: 10,
-          right: 10,
-          bottom: 10,
-          left: 10,
+          top: 11,
+          right: 11,
+          bottom: 11,
+          left: 11,
         },
         shape: "circle",
-        size: 300,
         color: {
           border: "black",
           background: "white",
@@ -55,13 +66,29 @@ const MachineDrawer = ({ transitions, states, initialState, finalStates }) => {
       interaction: {
         selectConnectedEdges: false,
       },
+      physics: {
+        barnesHut: {
+          centralGravity: 0.1,
+          springConstant: 0.01,
+        },
+      },
     };
 
-    // @ts-ignore
     const network = new vis.Network(container, data, options);
-    // @ts-ignore
-    nodes.update([{ id: "A", color: "#56914a" }]);
-
+    nodes.update([{ id: initialState[0], color: "#56914a" }]);
+    finalStates.map((state) =>
+      nodes.update([
+        {
+          id: state,
+          borderWidthSelected: 2,
+          color: {
+            border: "black",
+            highlight: { background: "white", border: "black", borderWidth: 1 },
+          },
+          borderWidth: 5,
+        },
+      ])
+    );
     return () => {
       if (network) {
         network.destroy();
@@ -71,10 +98,8 @@ const MachineDrawer = ({ transitions, states, initialState, finalStates }) => {
 
   return (
     <div
-      // @ts-ignore
       ref={networkRef}
-      style={{ height: "400px" }}
-      className='border-2 border-darkColor bg-gray-100 rounded-xl'
+      className='border-2 h-96 border-darkColor bg-gray-100 rounded-xl'
     ></div>
   );
 };

@@ -7,8 +7,6 @@ import { ChangeEvent, memo, useState } from "react";
 //TODO User shouldn't be able to enter repetitive states with same names
 //TODO User shouldn't be able to enter repetitive alphabets with same names
 //TODO we should remove the empty indexes because the user uses a lot of commas
-//TODO if the user change the selectBox after entering an initial state, it doesn't replace the new transitions. instead it adds to them :/
-
 type drawingSteps = 1 | 2 | 3;
 
 const MachineInfo = ({ redirectPathname }: { redirectPathname: string }) => {
@@ -200,11 +198,7 @@ const MachineInfo = ({ redirectPathname }: { redirectPathname: string }) => {
             <tbody>
               {states.map((state) => (
                 <tr>
-                  <th
-                    scope='row'
-                    key={state}
-                    className='bg-[#D9D9D9]'
-                  >
+                  <th scope='row' key={state} className='bg-[#D9D9D9]'>
                     {state}
                   </th>
                   {alphabets.map((alphabet) => (
@@ -214,7 +208,6 @@ const MachineInfo = ({ redirectPathname }: { redirectPathname: string }) => {
                         aria-label={`${state}-${alphabet}`}
                         onChange={(event) => {
                           const selectedState = event.target.value;
-                          //TODO filter the new transitions here and remove the old ones
                           addTransition({
                             from: state,
                             label: alphabet,
@@ -223,10 +216,7 @@ const MachineInfo = ({ redirectPathname }: { redirectPathname: string }) => {
                         }}
                       >
                         {states.map((state) => (
-                          <SelectItem
-                            key={state}
-                            value={state}
-                          >
+                          <SelectItem key={state} value={state}>
                             {state}
                           </SelectItem>
                         ))}
