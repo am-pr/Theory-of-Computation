@@ -81,6 +81,8 @@ const MachineInfo = ({ redirectPathname }: { redirectPathname: string }) => {
             />
           </div>
           <Button
+            isDisabled={states.length === 0 || alphabets.length === 0}
+            disableAnimation
             onPress={() => setDrawingStep(2)}
             className='ml-4 h-12 md:w-56 w-48 mb-9 bg-darkColor'
           >
@@ -107,6 +109,7 @@ const MachineInfo = ({ redirectPathname }: { redirectPathname: string }) => {
           </div>
           <div className='mx-4 mt-2'>
             <Select
+              isRequired
               onChange={(e) => setInitialState([e.target.value])}
               labelPlacement='outside'
               classNames={{
@@ -136,6 +139,7 @@ const MachineInfo = ({ redirectPathname }: { redirectPathname: string }) => {
           </div>
           <div className='mx-4 mt-2 mb-12'>
             <Select
+              isRequired
               labelPlacement='outside'
               selectionMode='multiple'
               onChange={(e) => addFinalStates(e.target.value.split(","))}
@@ -160,6 +164,9 @@ const MachineInfo = ({ redirectPathname }: { redirectPathname: string }) => {
           </div>
 
           <Button
+            isDisabled={
+              initialState[0].length === 0 || finalStates.length === 0
+            }
             onPress={() => setDrawingStep(3)}
             className='ml-4 h-12 mt-10 lg:w-56 w-48 mb-9 bg-darkColor'
           >
@@ -204,6 +211,9 @@ const MachineInfo = ({ redirectPathname }: { redirectPathname: string }) => {
                   {alphabets.map((alphabet) => (
                     <td>
                       <Select
+                        required
+                        key={`${state}-${alphabet}`}
+                        isRequired={true}
                         name={`${state}-${alphabet}`}
                         aria-label={`${state}-${alphabet}`}
                         onChange={(event) => {
@@ -228,8 +238,21 @@ const MachineInfo = ({ redirectPathname }: { redirectPathname: string }) => {
             </tbody>
           </table>
           {/* On this button the query will be sent */}
+          {transitions.length !== alphabets.length * states.length &&
+          transitions.length > 1 ? (
+            <div dir='rtl' className='text-red-500 mx-auto my-2'>
+              <span className='flex justify-center'>
+                اطلاعات داده شده برای رسم یک DFA کامل نمی باشد !
+              </span>
+            </div>
+          ) : (
+            ""
+          )}
           <Button
+            type='submit'
+            isDisabled={transitions.length !== alphabets.length * states.length}
             onPress={() => {
+              //TODO remove this log before deploy
               console.log(
                 "Transitions Before the redirect : ",
                 transitions,

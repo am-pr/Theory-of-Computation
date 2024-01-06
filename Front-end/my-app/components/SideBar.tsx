@@ -1,4 +1,5 @@
 "use client";
+import { useTransitionStore, useMachineInfoStore } from "@/app/store";
 import Link from "next/link";
 import { FC, useState } from "react";
 type state =
@@ -14,6 +15,9 @@ const SideBar: FC = () => {
   const [isToolsOpen, setIsToolsOpen] = useState(false);
   const [isOperationsOpen, setIsOperationsOpen] = useState(false);
   const [state, setState] = useState<state>("");
+  const resetTransitions = useTransitionStore((state) => state.reset);
+  const resetStates = useMachineInfoStore((state) => state.reset);
+
   return (
     <>
       <nav className='hidden md:flex h-full w-60 justify-center items-center fixed right-9 select-none'>
@@ -37,7 +41,9 @@ const SideBar: FC = () => {
             <div className='divide-y-2 divide-darkMediumColor flex-col grow justify-center h-full items-center'>
               <Link
                 href='/Paziresh'
-                onClick={() => setState("paziresh")}
+                onClick={() => (
+                  resetStates(), resetTransitions(), setState("paziresh")
+                )}
               >
                 <div
                   className={` ${
@@ -48,15 +54,14 @@ const SideBar: FC = () => {
                   <span className='text-primaryColor font-semibold mx-2'>
                     پذیرش رشته
                   </span>
-                  <img
-                    src='/codicon_symbol-string.svg'
-                    alt=''
-                  />
+                  <img src='/codicon_symbol-string.svg' alt='' />
                 </div>
               </Link>
               <Link
                 href='/Minimize'
-                onClick={() => setState("minimize")}
+                onClick={() => (
+                  resetStates(), resetTransitions(), setState("minimize")
+                )}
               >
                 <div
                   className={`${
@@ -66,15 +71,14 @@ const SideBar: FC = () => {
                   <span className='text-primaryColor font-semibold mx-2'>
                     مینیمایز کردن
                   </span>
-                  <img
-                    src='/solar_minimize-square-outline.svg'
-                    alt=''
-                  />
+                  <img src='/solar_minimize-square-outline.svg' alt='' />
                 </div>
               </Link>
               <Link
                 href='/Compliment'
-                onClick={() => setState("compliment")}
+                onClick={() => (
+                  resetStates(), resetTransitions(), setState("compliment")
+                )}
               >
                 <div
                   className={`${
@@ -84,10 +88,7 @@ const SideBar: FC = () => {
                   <span className='text-primaryColor font-semibold mx-2'>
                     متمم گرفتن
                   </span>
-                  <img
-                    src='/Compliment 1.svg'
-                    alt=''
-                  />
+                  <img src='/Compliment 1.svg' alt='' />
                 </div>
               </Link>
             </div>
@@ -113,7 +114,9 @@ const SideBar: FC = () => {
             <div className='divide-y-2 divide-darkMediumColor flex-col grow justify-center h-full items-center'>
               <Link
                 href='/Ejtema'
-                onClick={() => setState("ejtema")}
+                onClick={() => (
+                  resetStates(), resetTransitions(), setState("ejtema")
+                )}
               >
                 <div
                   className={`${
@@ -123,15 +126,14 @@ const SideBar: FC = () => {
                   <span className='text-primaryColor font-semibold mx-2'>
                     اجتماع{" "}
                   </span>
-                  <img
-                    src='/teenyicons_layers-union-solid.svg'
-                    alt=''
-                  />
+                  <img src='/teenyicons_layers-union-solid.svg' alt='' />
                 </div>
               </Link>
               <Link
                 href='/Eshterak'
-                onClick={() => setState("eshterak")}
+                onClick={() => (
+                  resetStates(), resetTransitions(), setState("eshterak")
+                )}
               >
                 <div
                   className={`${
@@ -141,15 +143,14 @@ const SideBar: FC = () => {
                   <span className='text-primaryColor font-semibold mx-2'>
                     اشتراک{" "}
                   </span>
-                  <img
-                    src='/icon-park-solid_intersection.svg'
-                    alt=''
-                  />
+                  <img src='/icon-park-solid_intersection.svg' alt='' />
                 </div>
               </Link>
               <Link
                 href='/Tafazol'
-                onClick={() => setState("tafazol")}
+                onClick={() => (
+                  resetStates(), resetTransitions(), setState("tafazol")
+                )}
               >
                 <div
                   className={`${
@@ -159,10 +160,7 @@ const SideBar: FC = () => {
                   <span className='text-primaryColor font-semibold mx-2'>
                     تفاضل{" "}
                   </span>
-                  <img
-                    src='/subway_subtraction-1.svg'
-                    alt=''
-                  />
+                  <img src='/subway_subtraction-1.svg' alt='' />
                 </div>
               </Link>
             </div>
