@@ -36,6 +36,7 @@ export const useMachineInfoStore = create<MachineState>()((set) => ({
       finalStates: [],
     })),
 }));
+//ender dragon
 // #endregion
 
 // #region Transition store

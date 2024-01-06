@@ -2,6 +2,7 @@
 "use client";
 import { useTransitionStore } from "@/app/store";
 import { useEffect, createRef } from "react";
+import { groupAndCombineLabels } from "@/functions/GroupAndCombineLabels";
 import * as vis from "vis-network/standalone";
 
 type MachineDrawerProps = {
@@ -19,9 +20,11 @@ const MachineDrawer = ({
 }: MachineDrawerProps) => {
   const networkRef = createRef();
 
+  const optimizedTRansitions = groupAndCombineLabels(transitions);
+
   useEffect(() => {
     const nodes = new vis.DataSet(states);
-    const edges = new vis.DataSet(transitions);
+    const edges = new vis.DataSet(optimizedTRansitions);
 
     const container = networkRef.current;
     const data = { nodes, edges };
