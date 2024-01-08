@@ -37,29 +37,40 @@ const MachineInfo = ({
 
   return (
     <div
-      className={`${className} w-full mx-1 rounded-tl-[10px] rounded-tr-[10px] rounded-br-[10px] rounded-bl-[10px] border-b-2 border-x-2 border-darkColor`}
+      className={`${className} w-full md:mx-1 rounded-tl-[10px] rounded-tr-[10px] rounded-br-[10px] rounded-bl-[10px] border-b-2 border-x-2 border-darkColor`}
     >
-      <header className='text-xl w-full text-right font-bold rounded-t-[10px] text-white bg-darkMediumColor'>
-        <span className='mr-6 py-4 block'>رسم ماشین</span>
+      <header className='md:text-xl text-base w-full text-right font-bold rounded-t-[10px] text-white bg-darkMediumColor'>
+        <span className='md:mr-6 mr-3 py-4 block'>رسم ماشین</span>
       </header>
-      <span className='block mt-6 mr-4 text-right'>
+      <span className='block md:mt-6 mt-4 md:mr-4 mr-3 text-right md:text-base text-xs'>
         ماشین را در سه مرحله رسم میکنیم
       </span>
 
       {/* From here the pages go dynamic : */}
       {drawingStep == 1 && (
         <>
-          <span className='block text-right mt-6 mr-4 font-bold'>
+          <span className='block text-right mt-6 md:mr-4 mr-3 font-bold md:text-base text-sm'>
             گام اول - ورود استیت ها و الفبا
           </span>
-          <div className='text-right mr-4 mt-9 flex flex-row-reverse items-center'>
-            <span className='font-bold'> :ورودی استیت ها</span>
+          <div className='text-right  md:mr-4 mx-3 md:mt-9 mt-6 flex flex-row-reverse items-center md:text-base text-sm '>
+            {/* <span className='font-bold'> :ورودی استیت ها</span>
             {"  "}
             <span className='text-sm font-normal'>
               در ورودی زیر استیت هارا نوشته و آن هارا با کاما(,) از هم جدا کنید
-            </span>
+            </span> */}
+
+              <p className='font-bold whitespace-nowrap text-sm md:text-base'>
+                 ورودی استیت ها: 
+                <span  className='md:text-sm text-xs font-normal whitespace-normal'> 
+                  {"  "}
+                  در ورودی زیر ، استیت ها را نوشته و با کاما(,) آنها را از یکدیگر جدا کنید
+                </span>
+              
+              </p> 
+
           </div>
-          <div className='mx-4 mt-2'>
+          {/*TODO: resize the input: size of input is too big for mobile view */}
+          <div className='mx-4 mt-2 '>
             <Input
               onChange={(e) => addStates(e.target.value.split(","))}
               classNames={{
@@ -71,11 +82,19 @@ const MachineInfo = ({
             />
           </div>
           <div className='text-right mr-4 mt-9 flex flex-row-reverse items-center'>
-            <span className='font-bold'> :ورودی زبان</span>
+            {/* <span className='font-bold'> :ورودی زبان</span>
             {"  "}
             <span className='text-sm font-normal'>
               در ورودی زیر زبان را نوشته و آن را با کاما(,) از هم جدا کنید
-            </span>
+            </span> */}
+            <p className='font-bold whitespace-nowrap text-sm md:text-base'>
+                 ورودی زبان: 
+                <span  className='md:text-sm text-xs font-normal whitespace-normal'> 
+                  {"  "}
+                  در ورودی زیر ، زبان را نوشته و با کاما(,) آنها را از یکدیگر جدا کنید
+                </span>
+              
+            </p> 
           </div>
           <div className='mx-4 mt-2 mb-12'>
             <Input
@@ -94,7 +113,7 @@ const MachineInfo = ({
             onPress={() => setDrawingStep(2)}
             className='ml-4 h-12 md:w-56 w-48 mb-9 bg-darkColor'
           >
-            <span className='text-primaryColor font-semibold'>مرحله بعدی</span>
+            <span className='text-primaryColor font-semibold '>مرحله بعدی</span>
           </Button>
         </>
       )}
