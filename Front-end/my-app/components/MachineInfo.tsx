@@ -9,7 +9,13 @@ import { ChangeEvent, memo, useState } from "react";
 //TODO we should remove the empty indexes because the user uses a lot of commas
 type drawingSteps = 1 | 2 | 3;
 
-const MachineInfo = ({ redirectPathname }: { redirectPathname: string }) => {
+const MachineInfo = ({
+  redirectPathname,
+  className,
+}: {
+  redirectPathname: string;
+  className?: string;
+}) => {
   // #region zustand states
   const states = useMachineInfoStore((state) => state._states);
   const alphabets = useMachineInfoStore((state) => state.alphabets);
@@ -30,7 +36,9 @@ const MachineInfo = ({ redirectPathname }: { redirectPathname: string }) => {
   const router = useRouter();
 
   return (
-    <div className='w-full mx-1 rounded-tl-[10px] rounded-tr-[10px] rounded-br-[10px] rounded-bl-[10px] border-b-2 border-x-2 border-darkColor'>
+    <div
+      className={`${className} w-full mx-1 rounded-tl-[10px] rounded-tr-[10px] rounded-br-[10px] rounded-bl-[10px] border-b-2 border-x-2 border-darkColor`}
+    >
       <header className='text-xl w-full text-right font-bold rounded-t-[10px] text-white bg-darkMediumColor'>
         <span className='mr-6 py-4 block'>رسم ماشین</span>
       </header>
@@ -205,7 +213,11 @@ const MachineInfo = ({ redirectPathname }: { redirectPathname: string }) => {
             <tbody>
               {states.map((state) => (
                 <tr>
-                  <th scope='row' key={state} className='bg-[#D9D9D9]'>
+                  <th
+                    scope='row'
+                    key={state}
+                    className='bg-[#D9D9D9]'
+                  >
                     {state}
                   </th>
                   {alphabets.map((alphabet) => (
@@ -226,7 +238,10 @@ const MachineInfo = ({ redirectPathname }: { redirectPathname: string }) => {
                         }}
                       >
                         {states.map((state) => (
-                          <SelectItem key={state} value={state}>
+                          <SelectItem
+                            key={state}
+                            value={state}
+                          >
                             {state}
                           </SelectItem>
                         ))}
@@ -240,7 +255,10 @@ const MachineInfo = ({ redirectPathname }: { redirectPathname: string }) => {
           {/* On this button the query will be sent */}
           {transitions.length !== alphabets.length * states.length &&
           transitions.length > 1 ? (
-            <div dir='rtl' className='text-red-500 mx-auto my-2'>
+            <div
+              dir='rtl'
+              className='text-red-500 mx-auto my-2'
+            >
               <span className='flex justify-center'>
                 اطلاعات داده شده برای رسم یک DFA کامل نمی باشد !
               </span>

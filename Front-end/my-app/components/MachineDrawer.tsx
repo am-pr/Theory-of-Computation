@@ -22,6 +22,13 @@ const MachineDrawer = ({
   const optimizedTRansitions = groupAndCombineLabels(transitions);
 
   useEffect(() => {
+    // if there are no transitions, redirect to Paziresh page
+    if (optimizedTRansitions.length === 0) {
+      window.location.href = "/Paziresh";
+    }
+  }, []);
+
+  useEffect(() => {
     const nodes = new vis.DataSet(states);
     const edges = new vis.DataSet(optimizedTRansitions);
 
