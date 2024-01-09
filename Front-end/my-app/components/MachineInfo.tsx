@@ -53,21 +53,13 @@ const MachineInfo = ({
             گام اول - ورود استیت ها و الفبا
           </span>
           <div className='text-right  md:mr-4 mx-3 md:mt-9 mt-6 flex flex-row-reverse items-center md:text-base text-sm '>
-            {/* <span className='font-bold'> :ورودی استیت ها</span>
-            {"  "}
-            <span className='text-sm font-normal'>
-              در ورودی زیر استیت هارا نوشته و آن هارا با کاما(,) از هم جدا کنید
-            </span> */}
-
               <p className='font-bold whitespace-nowrap text-sm md:text-base'>
                  ورودی استیت ها: 
                 <span  className='md:text-sm text-xs font-normal whitespace-normal'> 
                   {"  "}
                   در ورودی زیر ، استیت ها را نوشته و با کاما(,) آنها را از یکدیگر جدا کنید
                 </span>
-              
               </p> 
-
           </div>
           {/*TODO: resize the input: size of input is too big for mobile view */}
           <div className='mx-4 mt-2 '>
@@ -82,11 +74,6 @@ const MachineInfo = ({
             />
           </div>
           <div className='text-right mr-4 mt-9 flex flex-row-reverse items-center'>
-            {/* <span className='font-bold'> :ورودی زبان</span>
-            {"  "}
-            <span className='text-sm font-normal'>
-              در ورودی زیر زبان را نوشته و آن را با کاما(,) از هم جدا کنید
-            </span> */}
             <p className='font-bold whitespace-nowrap text-sm md:text-base'>
                  ورودی زبان: 
                 <span  className='md:text-sm text-xs font-normal whitespace-normal'> 
@@ -107,14 +94,16 @@ const MachineInfo = ({
               placeholder='a,b'
             />
           </div>
-          <Button
-            isDisabled={states.length === 0 || alphabets.length === 0}
-            disableAnimation
-            onPress={() => setDrawingStep(2)}
-            className='ml-4 h-12 md:w-56 w-48 mb-9 bg-darkColor'
-          >
-            <span className='text-primaryColor font-semibold '>مرحله بعدی</span>
-          </Button>
+          <div className="flex justify-end mr-4">
+            <Button
+              isDisabled={states.length === 0 || alphabets.length === 0}
+              disableAnimation
+              onPress={() => setDrawingStep(2)}
+              className='md:ml-4 h-12 md:w-56 w-48 mb-9 bg-darkColor'
+            >
+              <span className='text-primaryColor font-semibold '>مرحله بعدی</span>
+            </Button>
+          </div>
         </>
       )}
 
@@ -124,17 +113,18 @@ const MachineInfo = ({
 
       {drawingStep == 2 && (
         <>
-          <span className='block text-right mt-6 mr-4 font-bold'>
+          <span className='block text-right mt-6 md:mr-4 mr-3 font-bold md:text-base text-sm'>
             گام دوم - وارد کردن حالت ورودی و حالت پذیرش
           </span>
-          <div className='text-right mr-4 mt-9 flex flex-row-reverse items-center'>
-            <span className='font-bold'>: ورودی حالت ورودی</span>
-            {"  "}
-            <span className='text-sm font-normal'>
-              از باکس زیر حالت ورودی را انتخاب کنید
+          <div className='text-right md:mr-4 mx-3 md:mt-9 mt-6 flex flex-row-reverse items-center md:text-base text-xs'>
+            <span className='font-bold'> حالت ورودی: {"  "}
+              <span className='md:text-sm font-normal'>
+                از باکس زیر حالت ورودی را انتخاب کنید
+              </span>
             </span>
+            {"  "}
           </div>
-          <div className='mx-4 mt-2'>
+          <div className='md:mx-4 mx-3 md:mt-2 mt-1'>
             <Select
               isRequired
               onChange={(e) => setInitialState([e.target.value])}
@@ -157,14 +147,15 @@ const MachineInfo = ({
               ))}
             </Select>
           </div>
-          <div className='text-right mr-4 mt-9 flex flex-row-reverse items-center'>
-            <span className='font-bold'> ورودی پذیرش ها</span>
-            {"  "}
-            <span className='text-sm font-normal'>
-              از باکس زیر حالت های پذیرش را انتخاب کنید{" "}
+          <div className='text-right md:mr-4 mr-3 mt-9 flex flex-row-reverse items-center md:text-base text-xs'>
+            <span className='font-bold'>  ورودی پذیرش ها:{"  "}
+              <span className='md:text-sm font-normal'>
+
+                از باکس زیر حالت های پذیرش را انتخاب کنید
+              </span>
             </span>
           </div>
-          <div className='mx-4 mt-2 mb-12'>
+          <div className='md:mx-4 mx-3 md:mt-2  md:mb-12'>
             <Select
               isRequired
               labelPlacement='outside'
@@ -190,25 +181,28 @@ const MachineInfo = ({
             </Select>
           </div>
 
-          <Button
-            isDisabled={
-              initialState[0].length === 0 || finalStates.length === 0
-            }
-            onPress={() => setDrawingStep(3)}
-            className='ml-4 h-12 mt-10 lg:w-56 w-48 mb-9 bg-darkColor'
-          >
-            <span className='text-primaryColor font-semibold'>مرحله بعدی</span>
-          </Button>
-          <Button
-            onPress={() => {
-              setDrawingStep(1);
-              reset();
-              resetTransitions();
-            }}
-            className='ml-4 h-12 mt-10 lg:w-56 w-48 mb-9 bg-lightColor border-2 border-darkMediumColor'
-          >
-            <span className='text-darkColor font-semibold'>مرحله قبل</span>
-          </Button>
+              <div className="flex md:justify-end">
+                <Button
+                  onPress={() => {
+                    setDrawingStep(1);
+                    reset();
+                    resetTransitions();
+                  }}
+                  className='ml-4  h-12 md:mt-10 mt-[5.5rem] lg:w-56 w-48 md:mb-9 mb-6 bg-lightColor border-2 border-darkMediumColor'
+                >
+                  <span className='text-darkColor font-semibold'>مرحله قبل</span>
+                </Button>
+                <Button
+                  isDisabled={
+                    initialState[0].length === 0 || finalStates.length === 0
+                  }
+                  onPress={() => setDrawingStep(3)}
+                  className='md:ml-4 mx-4 h-12 md:mt-10 mt-[5.5rem] lg:w-56 w-48 md:mb-9 mb-4 bg-darkColor'
+                >
+                  <span className='text-primaryColor font-semibold'>مرحله بعدی</span>
+                </Button>
+
+              </div>
         </>
       )}
       {/* _________________________________________________________________ */}
