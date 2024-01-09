@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 
 type State = "tool" | "operation" | null;
@@ -12,6 +12,8 @@ const MobileNav = () => {
   const [operation, setOperation] = useState<Operation>(null);
   const [tool, setTool] = useState<Tool>(null);
   const { push } = useRouter();
+  const pathname = usePathname();
+
   return (
     <>
       {/* main nav starts here ↓ */}
@@ -66,29 +68,37 @@ const MobileNav = () => {
       >
         <div
           onClick={() => {
-            push("/Compliment");
+            push(`${tool === "compliment" ? "/" : "/Compliment"}`);
             setTool(tool === "compliment" ? null : "compliment");
           }}
           className={`${
-            tool === "compliment" ? "bg-secondaryColor" : ""
+            tool === "compliment" && pathname === "/Compliment"
+              ? "bg-secondaryColor"
+              : ""
           } p-1 transition-colors flex items-center rounded-lg`}
         >
           <span className='text-primaryColor mr-1 select-none text-xs'>
             متمم گرفتن
           </span>
           <img
-            className={`${tool === "compliment" ? "invert" : ""}`}
+            className={`${
+              tool === "compliment" && pathname === "/Compliment"
+                ? "invert"
+                : ""
+            }`}
             src='/Compliment 1.svg'
             alt=''
           />
         </div>
         <div
           onClick={() => {
-            push("/Minimize");
+            push(`${tool === "minimize" ? "/" : "/Minimize"}`);
             setTool(tool === "minimize" ? null : "minimize");
           }}
           className={`${
-            tool === "minimize" ? "bg-secondaryColor" : ""
+            tool === "minimize" && pathname === "/Minimize"
+              ? "bg-secondaryColor"
+              : ""
           } p-1 transition-colors flex items-center rounded-lg`}
         >
           <span className='text-primaryColor mr-1 select-none text-xs'>
@@ -98,11 +108,13 @@ const MobileNav = () => {
         </div>
         <div
           onClick={() => {
-            push("/Paziresh");
+            push(`${tool === "paziresh" ? "/" : "/Paziresh"}`);
             setTool(tool === "paziresh" ? null : "paziresh");
           }}
           className={`${
-            tool === "paziresh" ? "bg-secondaryColor" : ""
+            tool === "paziresh" && pathname === "/Paziresh"
+              ? "bg-secondaryColor"
+              : ""
           } p-1 transition-colors flex items-center rounded-lg`}
         >
           <span className='text-primaryColor mr-1 select-none text-xs'>
@@ -120,11 +132,13 @@ const MobileNav = () => {
       >
         <div
           onClick={() => {
-            push("/Tafazol");
+            push(`${operation === "tafazol" ? "/" : "/Tafazol"}`);
             setOperation(operation === "tafazol" ? null : "tafazol");
           }}
           className={`${
-            operation === "tafazol" ? "bg-secondaryColor" : ""
+            operation === "tafazol" && pathname === "/Tafazol"
+              ? "bg-secondaryColor"
+              : ""
           } p-1 transition-colors flex items-center rounded-lg`}
         >
           <span className='text-primaryColor mr-1 select-none text-xs'>
@@ -134,11 +148,13 @@ const MobileNav = () => {
         </div>
         <div
           onClick={() => {
-            push("/Eshterak");
+            push(`${operation === "eshterak" ? "/" : "/Eshterak"}`);
             setOperation(operation === "eshterak" ? null : "eshterak");
           }}
           className={`${
-            operation === "eshterak" ? "bg-secondaryColor" : ""
+            operation === "eshterak" && pathname === "/Eshterak"
+              ? "bg-secondaryColor"
+              : ""
           } p-1 transition-colors flex items-center rounded-lg`}
         >
           <span className='text-primaryColor mr-1 select-none text-xs'>
@@ -148,11 +164,13 @@ const MobileNav = () => {
         </div>
         <div
           onClick={() => {
-            push("/Ejtema");
+            push(`${operation === "ejtema" ? "/" : "/Ejtema"}`);
             setOperation(operation === "ejtema" ? null : "ejtema");
           }}
           className={`${
-            operation === "ejtema" ? "bg-secondaryColor" : ""
+            operation === "ejtema" && pathname === "/Ejtema"
+              ? "bg-secondaryColor"
+              : ""
           } p-1 transition-colors flex items-center rounded-lg`}
         >
           <span className='text-primaryColor mr-1 select-none text-xs'>
