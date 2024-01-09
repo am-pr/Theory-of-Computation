@@ -1,6 +1,5 @@
 // @ts-nocheck
 "use client";
-import { useTransitionStore } from "@/app/store";
 import { useEffect, createRef } from "react";
 import { groupAndCombineLabels } from "@/functions/GroupAndCombineLabels";
 import * as vis from "vis-network/standalone";
@@ -21,6 +20,13 @@ const MachineDrawer = ({
   const networkRef = createRef();
 
   const optimizedTRansitions = groupAndCombineLabels(transitions);
+
+  useEffect(() => {
+    // if there are no transitions, redirect to Paziresh page
+    if (optimizedTRansitions.length === 0) {
+      window.location.href = "/Paziresh";
+    }
+  }, []);
 
   useEffect(() => {
     const nodes = new vis.DataSet(states);
