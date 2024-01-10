@@ -71,3 +71,4 @@ E:\Computer\proj\InvisibleGang\Back-end\Invisibles\bin\Debug\net7.0\FluentValida
 E:\Computer\proj\InvisibleGang\Back-end\Invisibles\bin\Debug\net7.0\FluentValidation.DependencyInjectionExtensions.dll
 E:\Computer\proj\InvisibleGang\Back-end\Invisibles\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
 E:\Computer\proj\InvisibleGang\Back-end\Invisibles\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+E:\Computer\proj\InvisibleGang\Back-end\Invisibles\bin\Debug\net7.0\Newtonsoft.Json.dll

@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using Invisibles.DTO.FromFront.AcceptMachine.command;
 using Invisibles.DTO.FromFront.Machine.command;
+using Invisibles.DTO.FromFront.MinimizeMachine.command;
 using Invisibles.Interface.IConnectPython;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -46,7 +47,7 @@ namespace Invisibles.Controllers.Machine
         }
 
 
-        [HttpPost]
+        [HttpPost(" Post_AcceptMachine")]
         public async Task<ActionResult> Post_AcceptMachine(AcceptMachine_Create_Dto acceptMachine_Create_Dto)
         {
             //validation
@@ -54,6 +55,20 @@ namespace Invisibles.Controllers.Machine
 
 
             var AcceptMachineResult = await _connectPython.AcceptMachine(acceptMachine_Create_Dto);
+
+
+            return Ok(AcceptMachineResult);
+        }
+
+
+        [HttpPost("Post_MinimizeMachine")]
+        public async Task<ActionResult> Post_MinimizeMachine(MinimizeMachine_Create_Dto minimizeMachine_Create)
+        {
+            //validation
+
+
+
+            var AcceptMachineResult = await _connectPython.MinimizeMachine(minimizeMachine_Create);
 
 
             return Ok(AcceptMachineResult);

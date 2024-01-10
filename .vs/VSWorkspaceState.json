@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Back-end"
+    "\\Back-end",
+    "\\Back-end\\Invisibles",
+    "\\Back-end\\Invisibles\\Controllers",
+    "\\Back-end\\Invisibles\\Controllers\\Machine"
   ],
+  "SelectedNode": "\\Back-end\\Invisibles\\Controllers\\Machine\\MachineController.cs",
   "PreviewInSolutionExplorer": false
 }

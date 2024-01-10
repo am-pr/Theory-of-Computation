@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Invisibles")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6f6eaca5a99ef7cc6bb4539e4c7ddec0121bcf5c")]
 [assembly: System.Reflection.AssemblyProductAttribute("Invisibles")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Invisibles")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
