@@ -11,7 +11,7 @@ namespace Invisibles.Repository
 {
     public class ConnectPython_Rep : IConnectPython
     {
-        public async Task<MachinePython_Create_Dto> AcceptMachine(AcceptMachine_Create_Dto acceptMachine_Create_Dto)
+        public async Task<bool> AcceptMachine(AcceptMachine_Create_Dto acceptMachine_Create_Dto)
         {
             string apiUrl = "http://127.0.0.1:5000/api/acceptMachine";
 
@@ -29,14 +29,15 @@ namespace Invisibles.Repository
                     if (response.IsSuccessStatusCode)
                     {
                         // Read and deserialize the response content
-                        MachinePython_Create_Dto machine_Python_Dto = JsonConvert.DeserializeObject<MachinePython_Create_Dto>(await response.Content.ReadAsStringAsync());
+                        string result = await response.Content.ReadAsStringAsync();
 
-                        // Return the response
-                        return machine_Python_Dto;
+                        // Return the response (true if accepted, false if not)
+                        return result == "accepted";
                     }
                     else
                     {
-                        return null;
+                        // Return false if the request was not successful
+                        return false;
                     }
                 }
                 catch (Exception ex)
@@ -46,6 +47,7 @@ namespace Invisibles.Repository
                 }
             }
         }
+
 
         public async Task<MachinePython_Create_Dto> MinimizeMachine(MinimizeMachine_Create_Dto minimizeMachine_Create_Dto)
         {

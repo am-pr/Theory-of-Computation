@@ -14,6 +14,6 @@ namespace Invisibles.DTO.FromFront.AcceptMachine.command
 
         public List<Transition_Dto> transition_Dtos { get; set; } = null!;
 
-        public List<string> strings { get; set; } = null!;
+        public string strings { get; set; } = null!;
     }
 }

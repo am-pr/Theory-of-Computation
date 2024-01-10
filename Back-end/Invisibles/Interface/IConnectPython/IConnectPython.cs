@@ -8,7 +8,7 @@ namespace Invisibles.Interface.IConnectPython
 {
     public interface IConnectPython
     {
-        Task<MachinePython_Create_Dto> AcceptMachine(AcceptMachine_Create_Dto acceptMachine_Create_Dto);
+        Task<bool> AcceptMachine(AcceptMachine_Create_Dto acceptMachine_Create_Dto);
 
         Task<MachinePython_Create_Dto> MinimizeMachine(MinimizeMachine_Create_Dto minimizeMachine_Create_Dto);
 

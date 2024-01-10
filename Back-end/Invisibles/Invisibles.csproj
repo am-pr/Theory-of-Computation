@@ -20,6 +20,7 @@
     <Folder Include="DTO\FromFront\AcceptMachine\queries\" />
     <Folder Include="DTO\FromFront\MinimizeMachine\queries\" />
     <Folder Include="DTO\FromFront\SpplementMachine\queries\" />
+    <Folder Include="DTO\FromPython\ReturnAcceptMachine\" />
   </ItemGroup>
 
 </Project>

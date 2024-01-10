@@ -5,7 +5,10 @@ using Invisibles.DTO.FromFront.MinimizeMachine.command;
 using Invisibles.DTO.FromFront.SpplementMachine.command;
 using Invisibles.DTO.FromPython.Machine.command;
 using Invisibles.Interface.IConnectPython;
+using Invisibles.Interface.Istatus;
+using Invisibles.Interface.Ivalidation;
 using Invisibles.Repository;
+using Invisibles.Status;
 using Invisibles.Validate.Front;
 using Invisibles.Validate.Python;
 using System.Collections.Generic;
@@ -47,7 +50,9 @@ builder.Services.AddScoped<IValidator<MachinePython_Create_Dto>, MachinePython_V
 
 #region Oders
 
+builder.Services.AddScoped<Istatus, StatusFunction>();
 
+builder.Services.AddScoped<IValidation, Validation_Rep>();
 
 #endregion
 
