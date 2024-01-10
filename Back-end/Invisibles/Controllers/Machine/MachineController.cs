@@ -90,5 +90,19 @@ namespace Invisibles.Controllers.Machine
             return Ok(AcceptMachineResult);
         }
 
+
+
+        [HttpPost("Post_SpplementMachine")]
+        public async Task<ActionResult> Post_SpplementMachine(SpplementMachine_Create_Dto spplementMachine_Create_Dto)
+        {
+            //validation
+
+
+
+            var AcceptMachineResult = await _connectPython.SpplementMachine(spplementMachine_Create_Dto);
+
+
+            return Ok(AcceptMachineResult);
+        }
     }
 }
