@@ -4,10 +4,11 @@ import MachineDrawer from "@/components/MachineDrawer";
 import MainFrame from "@/components/MainFrame";
 import { Chip } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Result = () => {
   const [inputString, setInputString] = useState("");
+  const [isStringValid, setIsStringValid] = useState(true);
 
   const { push } = useRouter();
 
@@ -18,6 +19,17 @@ const Result = () => {
   const transitions = useTransitionStore((state) => state.transitions);
   const resetTransitions = useTransitionStore((state) => state.reset);
   const resetMachine = useMachineInfoStore((state) => state.reset);
+
+  useEffect(() => {
+    if (inputString.length > 0 && !regex.test(inputString)) {
+      setIsStringValid(false);
+    } else {
+      setIsStringValid(true);
+    }
+  }, [inputString]);
+
+  //The regex pattern that only accepts the alphabets
+  const regex = new RegExp(`^[${alphabets.join("")}]*$`);
 
   // here we handle the string confirmation from tha API
   function handleUserString() {
@@ -67,8 +79,9 @@ const Result = () => {
       />
       <div className='mt-6 flex'>
         <button
+          disabled={!isStringValid || inputString.length === 0}
           onClick={handleUserString}
-          className='basis-1/4 bg-darkColor font-semibold md:text-lg rounded-l-lg text-primaryColor hover:bg-darkMediumColor transition-all active:scale-95'
+          className='basis-1/4 bg-darkColor disabled:cursor-not-allowed disabled:opacity-80 font-semibold md:text-lg rounded-l-lg text-primaryColor hover:bg-darkMediumColor transition-all active:scale-95'
         >
           بررسی
         </button>
@@ -79,6 +92,14 @@ const Result = () => {
           className='basis-3/4 bg-[#D9D9D9] p-4 placeholder:text-darkColor rounded-r-xl outline-none'
           type='text'
         />
+      </div>
+      {/* Here we valid that the string in a subset of alphabets or not */}
+      <div
+        className={`${
+          !isStringValid ? "visible text-center text-red-500" : "invisible"
+        }`}
+      >
+        رشته ی داده شده با زبان ماشین مطابقت ندارد
       </div>
 
       {/* Here the user strings come and is waiting for its confirmation ↓ */}
