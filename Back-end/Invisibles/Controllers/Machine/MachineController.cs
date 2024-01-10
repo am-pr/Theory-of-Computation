@@ -2,6 +2,8 @@
 using Invisibles.DTO.FromFront.AcceptMachine.command;
 using Invisibles.DTO.FromFront.Machine.command;
 using Invisibles.DTO.FromFront.MinimizeMachine.command;
+using Invisibles.DTO.FromFront.SpplementMachine.command;
+using Invisibles.DTO.FromPython.Machine.command;
 using Invisibles.Interface.IConnectPython;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -14,10 +16,24 @@ namespace Invisibles.Controllers.Machine
     public class MachineController : ControllerBase
     {
         private readonly IValidator<Machine_Create_Dto> _validatorMachineF;
+        private readonly IValidator<AcceptMachine_Create_Dto> _validatorAcceptMachineF;
+        private readonly IValidator<MinimizeMachine_Create_Dto> _validatorMinimizeMachineF;
+        private readonly IValidator<SpplementMachine_Create_Dto> _validatorSpplementMachineF;
+        private readonly IValidator<MachinePython_Create_Dto> _validatorMachinePythonP;
         private readonly IConnectPython _connectPython;
-        public MachineController(IValidator<Machine_Create_Dto> validatorMachineF, IConnectPython connectPython)
+
+        public MachineController(IValidator<Machine_Create_Dto> validatorMachineF,
+            IValidator<AcceptMachine_Create_Dto> validatorAcceptMachineF,
+            IValidator<MinimizeMachine_Create_Dto> validatorMinimizeMachineF,
+            IValidator<SpplementMachine_Create_Dto> validatorSpplementMachineF,
+            IValidator<MachinePython_Create_Dto> validatorMachinePythonP,
+            IConnectPython connectPython)
         {
             _validatorMachineF = validatorMachineF;
+            _validatorAcceptMachineF = validatorAcceptMachineF;
+            _validatorMinimizeMachineF = validatorMinimizeMachineF;
+            _validatorSpplementMachineF = validatorSpplementMachineF;
+            _validatorMachinePythonP = validatorMachinePythonP;
             _connectPython = connectPython;
         }
 

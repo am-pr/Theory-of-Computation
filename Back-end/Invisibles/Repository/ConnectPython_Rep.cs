@@ -2,6 +2,7 @@
 using Invisibles.DTO.FromFront.Machine.queries;
 using Invisibles.DTO.FromFront.MinimizeMachine.command;
 using Invisibles.DTO.FromFront.SpplementMachine.command;
+using Invisibles.DTO.FromPython.Machine.command;
 using Invisibles.Interface.IConnectPython;
 using Newtonsoft.Json;
 using System.Text;
@@ -10,7 +11,7 @@ namespace Invisibles.Repository
 {
     public class ConnectPython_Rep : IConnectPython
     {
-        public async Task<Machine_Python_Dto> AcceptMachine(AcceptMachine_Create_Dto acceptMachine_Create_Dto)
+        public async Task<MachinePython_Create_Dto> AcceptMachine(AcceptMachine_Create_Dto acceptMachine_Create_Dto)
         {
             string apiUrl = "http://127.0.0.1:5000/api/acceptMachine";
 
@@ -28,7 +29,7 @@ namespace Invisibles.Repository
                     if (response.IsSuccessStatusCode)
                     {
                         // Read and deserialize the response content
-                        Machine_Python_Dto machine_Python_Dto = JsonConvert.DeserializeObject<Machine_Python_Dto>(await response.Content.ReadAsStringAsync());
+                        MachinePython_Create_Dto machine_Python_Dto = JsonConvert.DeserializeObject<MachinePython_Create_Dto>(await response.Content.ReadAsStringAsync());
 
                         // Return the response
                         return machine_Python_Dto;
@@ -46,7 +47,7 @@ namespace Invisibles.Repository
             }
         }
 
-        public async Task<Machine_Python_Dto> MinimizeMachine(MinimizeMachine_Create_Dto minimizeMachine_Create_Dto)
+        public async Task<MachinePython_Create_Dto> MinimizeMachine(MinimizeMachine_Create_Dto minimizeMachine_Create_Dto)
         {
             string apiUrl = "http://127.0.0.1:5000/api/minimizeMachine";
 
@@ -64,7 +65,7 @@ namespace Invisibles.Repository
                     if (response.IsSuccessStatusCode)
                     {
                         // Read and deserialize the response content
-                        Machine_Python_Dto machine_Python_Dto = JsonConvert.DeserializeObject<Machine_Python_Dto>(await response.Content.ReadAsStringAsync());
+                        MachinePython_Create_Dto machine_Python_Dto = JsonConvert.DeserializeObject<MachinePython_Create_Dto>(await response.Content.ReadAsStringAsync());
 
                         // Return the response
                         return machine_Python_Dto;
@@ -83,7 +84,7 @@ namespace Invisibles.Repository
         }
 
 
-        public async Task<Machine_Python_Dto> SpplementMachine(SpplementMachine_Create_Dto spplementMachine_Create)
+        public async Task<MachinePython_Create_Dto> SpplementMachine(SpplementMachine_Create_Dto spplementMachine_Create)
         {
             string apiUrl = "http://127.0.0.1:5000/api/spplementMachine";
 
@@ -101,7 +102,7 @@ namespace Invisibles.Repository
                     if (response.IsSuccessStatusCode)
                     {
                         // Read and deserialize the response content
-                        Machine_Python_Dto machine_Python_Dto = JsonConvert.DeserializeObject<Machine_Python_Dto>(await response.Content.ReadAsStringAsync());
+                        MachinePython_Create_Dto machine_Python_Dto = JsonConvert.DeserializeObject<MachinePython_Create_Dto>(await response.Content.ReadAsStringAsync());
 
                         // Return the response
                         return machine_Python_Dto;
