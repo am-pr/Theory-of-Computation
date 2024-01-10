@@ -56,7 +56,9 @@ const MobileNav = () => {
           setState(null);
         }}
         className='bg-[#D9D9D9] md:hidden z-20 fixed bottom-0 size-14 left-1/2 -translate-x-[18px] rounded-full'
-      ></section>
+      >
+        <img className='rounded-full' src='/DFA-Logo.png' alt='logo' />
+      </section>
 
       {/* the tools */}
       <section
