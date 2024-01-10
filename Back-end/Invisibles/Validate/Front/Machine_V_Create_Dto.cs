@@ -1,6 +1,8 @@
 ﻿using FluentValidation;
 using Invisibles.DTO.FromFront.Machine.command;
 
+
+
 namespace Invisibles.Validate.Front
 {
     public class Machine_V_Create_Dto : AbstractValidator<Machine_Create_Dto>

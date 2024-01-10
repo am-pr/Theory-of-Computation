@@ -1,5 +1,6 @@
 ﻿using Invisibles.Interface.Istatus;
 
+
 namespace Invisibles.Status
 {
     public class StatusFunction : Istatus

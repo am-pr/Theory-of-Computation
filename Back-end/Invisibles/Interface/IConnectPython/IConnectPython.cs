@@ -4,6 +4,7 @@ using Invisibles.DTO.FromFront.MinimizeMachine.command;
 using Invisibles.DTO.FromFront.SpplementMachine.command;
 using Invisibles.DTO.FromPython.Machine.command;
 
+
 namespace Invisibles.Interface.IConnectPython
 {
     public interface IConnectPython

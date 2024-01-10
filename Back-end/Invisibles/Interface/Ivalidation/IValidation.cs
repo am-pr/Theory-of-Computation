@@ -1,4 +1,5 @@
-﻿namespace Invisibles.Interface.Ivalidation
+﻿
+namespace Invisibles.Interface.Ivalidation
 {
     public interface IValidation
     {
