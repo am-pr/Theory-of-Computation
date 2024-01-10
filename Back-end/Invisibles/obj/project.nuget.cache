@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "0/5L3MG6N045sANGHXAXLICC/lQWbw0KsXiwdEuYb2mzl3X1M2B4VL/9p7Tkjkj7Hmhs0hVtfld4aP354uDUbw==",
+  "dgSpecHash": "CZBYrpzBv2v6bxbADcC3HqSW4rqcmVSaf2CcZ7iNFbbU83MXddO2ImJneI/YkXHWiJcR/Rw/xUHJntOb3m9e8w==",
   "success": true,
   "projectFilePath": "E:\\Computer\\proj\\InvisibleGang\\Back-end\\Invisibles\\Invisibles.csproj",
   "expectedPackageFiles": [
@@ -23,6 +23,7 @@
     "C:\\Users\\Kasra\\.nuget\\packages\\microsoft.extensions.options\\7.0.0\\microsoft.extensions.options.7.0.0.nupkg.sha512",
     "C:\\Users\\Kasra\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",
     "C:\\Users\\Kasra\\.nuget\\packages\\microsoft.openapi\\1.4.3\\microsoft.openapi.1.4.3.nupkg.sha512",
+    "C:\\Users\\Kasra\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\Kasra\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
     "C:\\Users\\Kasra\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
     "C:\\Users\\Kasra\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
