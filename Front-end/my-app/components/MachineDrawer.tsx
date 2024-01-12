@@ -22,9 +22,9 @@ const MachineDrawer = ({
   const optimizedTRansitions = groupAndCombineLabels(transitions);
 
   useEffect(() => {
-    // if there are no transitions, redirect to Paziresh page
+    //TODO if there are no transitions, redirect to Main page
     if (optimizedTRansitions.length === 0) {
-      window.location.href = "/Paziresh";
+      window.location.href = "/";
     }
   }, []);
 
