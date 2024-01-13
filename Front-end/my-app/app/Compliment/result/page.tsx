@@ -24,15 +24,15 @@ const Result = () => {
     <MainFrame>
       <header>
         <h1 className='text-2xl text-right font-black text-darkColor mt-9 mr-6'>
-          مینیمایز کردن
+          متمم گرفتن
         </h1>
       </header>
       <section className='flex *:text-center gap-x-2 *:basis-1/2 mt-12 mb-3 font-bold'>
-        <span>ماشین مینیمایز شده</span>
+        <span>ماشین متمم گرفته شده</span>
         <span>ماشین اصلی</span>
       </section>
       <section className='flex gap-x-2'>
-        <MachineDrawer //Minimized machine
+        <MachineDrawer //Complimented machine
           className='basis-1/2'
           transitions={transitions}
           states={optimizedState}
