@@ -2,14 +2,10 @@
 import { useMachineInfoStore, useTransitionStore } from "@/app/store";
 import MachineDrawer from "@/components/MachineDrawer";
 import MainFrame from "@/components/MainFrame";
-import { Chip } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const Result = () => {
-  const [inputString, setInputString] = useState("");
-  const [isStringValid, setIsStringValid] = useState(true);
-
   const { push } = useRouter();
 
   const states = useMachineInfoStore((state) => state._states);
@@ -17,74 +13,46 @@ const Result = () => {
   const initialState = useMachineInfoStore((state) => state.initialState);
   const finalStates = useMachineInfoStore((state) => state.finalStates);
   const transitions = useTransitionStore((state) => state.transitions);
+
   const resetTransitions = useTransitionStore((state) => state.reset);
   const resetMachine = useMachineInfoStore((state) => state.reset);
-
-  useEffect(() => {
-    if (inputString.length > 0 && !regex.test(inputString)) {
-      setIsStringValid(false);
-    } else {
-      setIsStringValid(true);
-    }
-  }, [inputString]);
-
-  //The regex pattern that only accepts the alphabets
-  const regex = new RegExp(`^[${alphabets.join("")}]*$`);
-
-  // here we handle the string confirmation from tha API
-  function handleUserString() {
-    // a request to API with answer will come here
-    setInputString("");
-  }
-  console.log(
-    "Transitions : ",
-    transitions,
-    "\n",
-    "\nstates :",
-    states,
-    "\nalphabets :",
-    alphabets,
-    "\ninitialState :",
-    initialState,
-    "\nfinalStates :",
-    finalStates
-  );
 
   // Optimize states (key names are changed to be compatible with VIS.js)
   const optimizedState = states.map((state) => ({ id: state, label: state }));
 
   return (
     <MainFrame>
-      <header className='flex justify-between'>
-        <Chip
-          classNames={{ base: "bg-darkMediumColor", content: "text-white" }}
-          variant='solid'
-        >
-          مرحله ۲ از ۲
-        </Chip>
-        <h1 className='text-2xl font-black text-darkColor'>پذیرش رشته</h1>
+      <header>
+        <h1 className='text-2xl text-right font-black text-darkColor mt-9 mr-6'>
+          مینیمایز کردن
+        </h1>
       </header>
-      <span className='font-medium mt-9 block text-right'>
-        :پذیرش رشته شامل دو گام است
-      </span>
-      <span className='block font-bold text-right mt-2'>گام دوم</span>
-      <span className='block text-right mt-1 mr-6 font-medium mb-6'>
-        در این گام رشته(رشته‌ها) مورد نظر خود را وارد کنید.
-      </span>
-      <section className='flex gap-x-2 justify-between'>
-        <MachineDrawer
+      <section className='flex *:text-center gap-x-2 *:basis-1/2 mt-12 mb-3 font-bold'>
+        <span>ماشین مینیمایز شده</span>
+        <span>ماشین اصلی</span>
+      </section>
+      <section className='flex gap-x-2'>
+        <MachineDrawer //Minimized machine
+          className='basis-1/2'
           transitions={transitions}
           states={optimizedState}
           initialState={initialState}
           finalStates={finalStates}
         />
-        <MachineDrawer
+        <MachineDrawer //Main machine
+          className='basis-1/2'
           transitions={transitions}
           states={optimizedState}
           initialState={initialState}
           finalStates={finalStates}
         />
       </section>
+      <button
+        onClick={() => (resetTransitions(), resetMachine(), push("/Minimize"))}
+        className='bg-darkColor md:mt-12 w-72 p-4 font-semibold md:text-lg rounded-lg text-primaryColor hover:bg-darkMediumColor transition-all active:scale-95'
+      >
+        طراحی ماشین جدید
+      </button>
     </MainFrame>
   );
 };

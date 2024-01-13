@@ -5,6 +5,7 @@ import { groupAndCombineLabels } from "@/functions/GroupAndCombineLabels";
 import * as vis from "vis-network/standalone";
 
 type MachineDrawerProps = {
+  className?: string;
   states: { id: string; label: string }[];
   finalStates: string[];
   initialState: [string];
@@ -12,6 +13,7 @@ type MachineDrawerProps = {
 };
 
 const MachineDrawer = ({
+  className,
   transitions,
   states,
   initialState,
@@ -108,7 +110,7 @@ const MachineDrawer = ({
   return (
     <div
       ref={networkRef}
-      className='border-2 h-96 border-darkColor bg-gray-100 rounded-xl'
+      className={`${className} border-2 h-96 border-darkColor bg-gray-100 rounded-xl`}
     ></div>
   );
 };
