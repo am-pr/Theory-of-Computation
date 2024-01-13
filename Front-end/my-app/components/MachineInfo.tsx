@@ -217,67 +217,69 @@ const MachineInfo = ({
       {/* third step for getting machine info ↓ */}
 
       {drawingStep == 3 && (
-        <section className='mb-20'>
-          <span className='block text-right mt-6 mr-4 font-bold'>
+        <section className='md:mb-20 mb-4'>
+          <span className='block text-right mt-6 mr-4 font-bold md:text-base text-sm'>
             گام سوم - جدول انتقال ها
           </span>
-          <table className='w-full mt-9 border border-collapse rounded-xl border-darkColor'>
-            <thead className='bg-[#D9D9D9] h-16'>
-              <tr>
-                <th className='lg:text-xl md:text-lg'>States</th>
-                {alphabets.map((alphabet) => {
-                  return <th key={alphabet}>{alphabet}</th>;
-                })}
-              </tr>
-            </thead>
-            <tbody>
-              {states.map((state) => (
+          <div className='mx-3'>
+            <table className='w-full mt-9 border border-collapse rounded-xl border-darkColor'>
+              <thead className='bg-[#D9D9D9] h-16'>
                 <tr>
-                  <th
-                    scope='row'
-                    key={state}
-                    className='bg-[#D9D9D9]'
-                  >
-                    {state}
-                  </th>
-                  {alphabets.map((alphabet) => (
-                    <td>
-                      <Select
-                        required
-                        key={`${state}-${alphabet}`}
-                        isRequired={true}
-                        name={`${state}-${alphabet}`}
-                        aria-label={`${state}-${alphabet}`}
-                        onChange={(event) => {
-                          const selectedState = event.target.value;
-                          addTransition({
-                            from: state,
-                            label: alphabet,
-                            to: selectedState,
-                          });
-                        }}
-                      >
-                        {states.map((state) => (
-                          <SelectItem
-                            key={state}
-                            value={state}
-                          >
-                            {state}
-                          </SelectItem>
-                        ))}
-                      </Select>
-                    </td>
-                  ))}
+                  <th className='lg:text-xl md:text-lg'>States</th>
+                  {alphabets.map((alphabet) => {
+                    return <th key={alphabet}>{alphabet}</th>;
+                  })}
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {states.map((state) => (
+                  <tr>
+                    <th 
+                    scope='row' 
+                    key={state} 
+                    className='bg-[#D9D9D9]'
+                    >
+                      {state}
+                    </th>
+                    {alphabets.map((alphabet) => (
+                      <td>
+                        <Select
+                          required
+                          key={`${state}-${alphabet}`}
+                          isRequired={true}
+                          name={`${state}-${alphabet}`}
+                          aria-label={`${state}-${alphabet}`}
+                          onChange={(event) => {
+                            const selectedState = event.target.value;
+                            addTransition({
+                              from: state,
+                              label: alphabet,
+                              to: selectedState,
+                            });
+                          }}
+                        >
+                          {states.map((state) => (
+                            <SelectItem 
+                            key={state} 
+                            value={state}
+                            >
+                              {state}
+                            </SelectItem>
+                          ))}
+                        </Select>
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
           {/* On this button the query will be sent */}
           {transitions.length !== alphabets.length * states.length &&
           transitions.length > 1 ? (
-            <div
-              dir='rtl'
-              className='text-red-500 mx-auto my-2'
+            <div 
+            dir='rtl' 
+            className='text-red-500 mx-auto my-2'
             >
               <span className='flex justify-center'>
                 اطلاعات داده شده برای رسم یک DFA کامل نمی باشد !
@@ -286,36 +288,43 @@ const MachineInfo = ({
           ) : (
             ""
           )}
-          <Button
-            type='submit'
-            isDisabled={transitions.length !== alphabets.length * states.length}
-            onPress={() => {
-              //TODO remove this log before deploy
-              console.log(
-                "Transitions Before the redirect : ",
-                transitions,
-                "\n",
-                "\nstates :",
-                states,
-                "\nalphabets :",
-                alphabets,
-                "\ninitialState :",
-                initialState,
-                "\nfinalStates :",
-                finalStates
-              );
-              return router.push(redirectPathname);
-            }}
-            className='ml-4 h-12 lg:w-56 w-36 md:w-48 md:mb-9 mt-6 bg-darkColor'
-          >
-            <span className='text-primaryColor font-semibold'>مرحله بعدی</span>
-          </Button>
-          <Button
-            onPress={() => setDrawingStep(2)}
-            className='ml-4 h-12 lg:w-56 w-36 md:w-48 md:my-9 mt-6 bg-lightColor border-2 border-darkMediumColor'
-          >
-            <span className='text-darkColor font-semibold'>مرحله قبل</span>
-          </Button>
+          <div className="flex justify-end mr-3">
+            <Button
+              onPress={() => setDrawingStep(2)}
+              className='md:ml-4 ml-3 h-12 lg:w-56 w-48 md:my-9 mt-6 bg-lightColor border-2 border-darkMediumColor md:text-base text-xs'
+              >
+              <span className='text-darkColor font-semibold'>مرحله قبل</span>
+            </Button>
+            <Button
+              type='submit'
+              isDisabled={
+                transitions.length !== alphabets.length * states.length
+              }
+              onPress={() => {
+                //TODO remove this log before deploy
+                console.log(
+                  "Transitions Before the redirect : ",
+                  transitions,
+                  "\n",
+                  "\nstates :",
+                  states,
+                  "\nalphabets :",
+                  alphabets,
+                  "\ninitialState :",
+                  initialState,
+                  "\nfinalStates :",
+                  finalStates
+                );
+                return router.push(redirectPathname);
+              }}
+              className='ml-4 h-12 lg:w-56 w-48 md:mb-9 mt-9 bg-darkColor md:text-base text-xs'
+            >
+              <span className='text-primaryColor font-semibold'>
+                مرحله بعدی
+              </span>
+            </Button>
+          </div>
+          
         </section>
       )}
     </div>
