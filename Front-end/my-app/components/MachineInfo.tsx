@@ -317,7 +317,7 @@ const MachineInfo = ({
                 );
                 return router.push(redirectPathname);
               }}
-              className='ml-4 h-12 lg:w-56 w-48 md:mb-9 mt-9 bg-darkColor md:text-base text-xs'
+              className='ml-4 h-12 lg:w-56 w-48 md:mb-9 md:mt-9 mt-6 bg-darkColor md:text-base text-xs'
             >
               <span className='text-primaryColor font-semibold'>
                 مرحله بعدی
