@@ -3,6 +3,8 @@ import { useMachineInfoStore, useTransitionStore } from "@/app/store";
 import MachineDrawer from "@/components/MachineDrawer";
 import MainFrame from "@/components/MainFrame";
 import { Chip } from "@nextui-org/react";
+
+import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -28,27 +30,59 @@ const Result = () => {
     }
   }, [inputString]);
 
+  //Optimized transitions for API POST
+  const transitionPost = transitions.map((item) => {
+    return {
+      from: item.from,
+      symbol: item.label, //symbol is the label
+      to: item.to,
+    };
+  });
+
   //The regex pattern that only accepts the alphabets
   const regex = new RegExp(`^[${alphabets.join("")}]*$`);
 
   // here we handle the string confirmation from tha API
   function handleUserString() {
     // a request to API with answer will come here
+    console.log("request sent");
+
+    // axios
+    //   .get("http://localhost:5256/api/Machine/hello")
+    //   .then((res) => console.log(res))
+    //   .catch((err) => console.error(err));
+
+    axios
+      .post("http://localhost:5256/api/Machine/post/Machine", {
+        // state: states,
+        state: ["$"],
+        alphabet: alphabets,
+        initial: initialState[0],
+        finalState: finalStates,
+        transition_Dtos: transitionPost,
+      })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
     setInputString("");
   }
-  console.log(
-    "Transitions : ",
-    transitions,
-    "\n",
-    "\nstates :",
-    states,
-    "\nalphabets :",
-    alphabets,
-    "\ninitialState :",
-    initialState,
-    "\nfinalStates :",
-    finalStates
-  );
+
+  // console.log(
+  //   "Transitions : ",
+  //   transitions,
+  //   "\n",
+  //   "\nstates :",
+  //   states,
+  //   "\nalphabets :",
+  //   alphabets,
+  //   "\ninitialState :",
+  //   initialState,
+  //   "\nfinalStates :",
+  //   finalStates
+  // );
 
   // Optimize states (key names are changed to be compatible with VIS.js)
   const optimizedState = states.map((state) => ({ id: state, label: state }));
@@ -86,6 +120,7 @@ const Result = () => {
           بررسی
         </button>
         <input
+          value={inputString}
           onChange={(e) => setInputString(e.target.value)}
           placeholder='در این قسمت رشته را وارد کنید'
           dir='rtl'
