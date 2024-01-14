@@ -5,7 +5,10 @@
     "\\Back-end\\Invisibles",
     "\\Back-end\\Invisibles\\Controllers",
     "\\Back-end\\Invisibles\\Controllers\\Machine",
+    "\\Back-end\\Invisibles\\Interface",
+    "\\Back-end\\Invisibles\\Interface\\IConnectPython",
     "\\Back-end\\Invisible_Test"
   ],
+  "SelectedNode": "\\Back-end\\Invisibles\\Interface\\IConnectPython\\IConnectPython.cs",
   "PreviewInSolutionExplorer": false
 }

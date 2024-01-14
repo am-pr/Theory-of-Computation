@@ -78,7 +78,7 @@ namespace Invisibles.Controllers.Machine
         }
 
 
-        [HttpPost(" Post_AcceptMachine")]
+        [HttpPost("Post_AcceptMachine")]
         public async Task<ActionResult> Post_AcceptMachine(AcceptMachine_Create_Dto acceptMachine_Create_Dto)
         {
             //validation
@@ -196,6 +196,13 @@ namespace Invisibles.Controllers.Machine
 
 
             return Ok(SpplementMachineResult);
+        }
+
+
+        [HttpGet("hello")]
+        public ActionResult Hello()
+        {
+            return Ok("hello invisible");
         }
     }
 }

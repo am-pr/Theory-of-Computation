@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Invisible_Test")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+846aa3c5f875bb9a88d3933dde414093b4a7e919")]
 [assembly: System.Reflection.AssemblyProductAttribute("Invisible_Test")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Invisible_Test")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
