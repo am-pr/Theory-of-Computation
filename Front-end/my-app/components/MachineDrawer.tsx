@@ -110,7 +110,7 @@ const MachineDrawer = ({
   return (
     <div
       ref={networkRef}
-      className={`${className} border-2 h-96 border-darkColor bg-gray-100 rounded-xl`}
+      className={`${className} border-2 md:h-96 h-64 border-darkColor bg-gray-100 rounded-xl`}
     ></div>
   );
 };
