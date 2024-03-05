@@ -2,6 +2,8 @@
 import { useTransitionStore, useMachineInfoStore } from "@/app/store";
 import Link from "next/link";
 import { FC, useState } from "react";
+import { usePathname } from "next/navigation";
+
 type state =
   | "paziresh"
   | "minimize"
@@ -17,6 +19,10 @@ const SideBar: FC = () => {
   const [state, setState] = useState<state>("");
   const resetTransitions = useTransitionStore((state) => state.reset);
   const resetStates = useMachineInfoStore((state) => state.reset);
+
+  const pathname = usePathname();
+
+  if (pathname == "/") return null;
 
   return (
     <>
