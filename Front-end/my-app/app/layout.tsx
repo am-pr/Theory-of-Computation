@@ -4,8 +4,6 @@ import "./globals.css";
 import { Providers } from "./provider";
 import MobileNav from "../components/MobileNav";
 import SideBar from "@/components/SideBar";
-import NextNProgressBar from "@/components/NextNProgress";
-import MainFrame from "@/components/MainFrame";
 import LoadingBar from "@/components/LoadingBar";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -22,10 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang='en'
-      className='light'
-    >
+    <html lang='en' className='light'>
       <body
         style={{ fontFamily: "vazir" }}
         className={`${inter.className} w-full`}
