@@ -142,7 +142,7 @@ const Result = () => {
       <div className='flex'>
         <button
           onClick={() => (
-            resetTransitions(), resetMachine(), push("/Paziresh")
+            resetTransitions(), resetMachine(), push("/AutomataMaker")
           )}
           className='basis-1/4 bg-darkColor p-4 font-semibold md:text-lg rounded-lg text-primaryColor hover:bg-darkMediumColor transition-all active:scale-95'
         >
