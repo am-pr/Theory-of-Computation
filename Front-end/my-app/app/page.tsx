@@ -1,7 +1,5 @@
 // TODO main page of the app should be designed here
 import React from "react";
-
-import MainFrame from "@/components/MainFrame";
 import background from "@/public/background/background.jpg";
 import Image from "next/image";
 import { Button } from "@nextui-org/react";
