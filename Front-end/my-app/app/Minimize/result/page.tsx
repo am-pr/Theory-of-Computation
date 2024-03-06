@@ -48,7 +48,9 @@ const Result = () => {
         />
       </section>
       <button
-        onClick={() => (resetTransitions(), resetMachine(), push("/Minimize"))}
+        onClick={() => (
+          resetTransitions(), resetMachine(), push("/AutomataMaker")
+        )}
         className='bg-darkColor md:mt-12 w-72 p-4 font-semibold md:text-lg rounded-lg text-primaryColor hover:bg-darkMediumColor transition-all active:scale-95'
       >
         طراحی ماشین جدید

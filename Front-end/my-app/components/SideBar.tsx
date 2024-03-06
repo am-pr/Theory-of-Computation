@@ -2,7 +2,7 @@
 import { useTransitionStore, useMachineInfoStore } from "@/app/store";
 import Link from "next/link";
 import { FC, useState } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 type state =
   | "paziresh"
@@ -17,10 +17,9 @@ const SideBar: FC = () => {
   const [isToolsOpen, setIsToolsOpen] = useState(false);
   const [isOperationsOpen, setIsOperationsOpen] = useState(false);
   const [state, setState] = useState<state>("");
-  const resetTransitions = useTransitionStore((state) => state.reset);
-  const resetStates = useMachineInfoStore((state) => state.reset);
 
   const pathname = usePathname();
+  const { push } = useRouter();
 
   if (pathname == "/") return null;
 
@@ -44,59 +43,43 @@ const SideBar: FC = () => {
               isToolsOpen ? "h-[150px]" : "h-0"
             } transition-height duration-1000 mt-4 shadow rounded-xl flex justify-center items-center overflow-hidden`}
           >
-            <div className='divide-y-2 divide-darkMediumColor flex-col grow justify-center h-full items-center'>
-              <Link
-                href='/Paziresh'
-                onClick={() => (
-                  resetStates(), resetTransitions(), setState("paziresh")
-                )}
-              >
-                <div
-                  className={` ${
-                    state == "paziresh" ? "bg-secondaryColor" : "bg-darkColor"
-                  } 
+            <div className='grow h-full'>
+              <div
+                onClick={() => (setState("paziresh"), push("/Paziresh/result"))}
+                className={` ${
+                  state == "paziresh" ? "bg-secondaryColor" : "bg-darkColor"
+                } 
                   h-1/3 cursor-pointer hover:translate-x-2 hover:bg-secondaryColor transition-transform flex items-center justify-center`}
-                >
-                  <span className='text-primaryColor font-semibold mx-2'>
-                    پذیرش رشته
-                  </span>
-                  <img src='/codicon_symbol-string.svg' alt='' />
-                </div>
-              </Link>
-              <Link
-                href='/Minimize'
-                onClick={() => (
-                  resetStates(), resetTransitions(), setState("minimize")
-                )}
               >
-                <div
-                  className={`${
-                    state == "minimize" ? "bg-secondaryColor" : "bg-darkColor"
-                  } h-1/3 cursor-pointer hover:translate-x-2 hover:bg-secondaryColor transition-transform flex items-center justify-center`}
-                >
-                  <span className='text-primaryColor font-semibold mx-2'>
-                    مینیمایز کردن
-                  </span>
-                  <img src='/solar_minimize-square-outline.svg' alt='' />
-                </div>
-              </Link>
-              <Link
-                href='/Compliment'
-                onClick={() => (
-                  resetStates(), resetTransitions(), setState("compliment")
-                )}
+                <span className='text-primaryColor font-semibold mx-2'>
+                  پذیرش رشته
+                </span>
+                <img src='/codicon_symbol-string.svg' alt='icon' />
+              </div>
+              <div
+                onClick={() => (setState("minimize"), push("/Minimize/result"))}
+                className={`${
+                  state == "minimize" ? "bg-secondaryColor" : "bg-darkColor"
+                } h-1/3 cursor-pointer hover:translate-x-2 hover:bg-secondaryColor transition-transform flex items-center justify-center`}
               >
-                <div
-                  className={`${
-                    state == "compliment" ? "bg-secondaryColor" : "bg-darkColor"
-                  } h-1/3 cursor-pointer hover:translate-x-2 hover:bg-secondaryColor transition-transform flex items-center justify-center`}
-                >
-                  <span className='text-primaryColor font-semibold mx-2'>
-                    متمم گرفتن
-                  </span>
-                  <img src='/Compliment 1.svg' alt='' />
-                </div>
-              </Link>
+                <span className='text-primaryColor font-semibold mx-2'>
+                  مینیمایز کردن
+                </span>
+                <img src='/solar_minimize-square-outline.svg' alt='icon' />
+              </div>
+              <div
+                onClick={() => (
+                  setState("compliment"), push("/Compliment/result")
+                )}
+                className={`${
+                  state == "compliment" ? "bg-secondaryColor" : "bg-darkColor"
+                } h-1/3 cursor-pointer hover:translate-x-2 hover:bg-secondaryColor transition-transform flex items-center justify-center`}
+              >
+                <span className='text-primaryColor font-semibold mx-2'>
+                  متمم گرفتن
+                </span>
+                <img src='/Compliment 1.svg' alt='' />
+              </div>
             </div>
           </div>
 
@@ -117,58 +100,41 @@ const SideBar: FC = () => {
               isOperationsOpen ? "h-[150px]" : "h-0"
             } transition-height duration-1000 mt-4 shadow rounded-xl flex justify-center items-center overflow-hidden`}
           >
-            <div className='divide-y-2 divide-darkMediumColor flex-col grow justify-center h-full items-center'>
-              <Link
-                href='/Ejtema'
-                onClick={() => (
-                  resetStates(), resetTransitions(), setState("ejtema")
-                )}
+            <div className='grow h-full'>
+              <div
+                onClick={() => (setState("ejtema"), push("/Ejtema/result"))}
+                className={`${
+                  state == "ejtema" ? "bg-secondaryColor" : "bg-darkColor"
+                } h-1/3 cursor-pointer hover:translate-x-2 hover:bg-secondaryColor transition-transform flex items-center justify-center`}
               >
-                <div
-                  className={`${
-                    state == "ejtema" ? "bg-secondaryColor" : "bg-darkColor"
-                  } h-1/3 cursor-pointer hover:translate-x-2 hover:bg-secondaryColor transition-transform flex items-center justify-center`}
-                >
-                  <span className='text-primaryColor font-semibold mx-2'>
-                    اجتماع{" "}
-                  </span>
-                  <img src='/teenyicons_layers-union-solid.svg' alt='' />
-                </div>
-              </Link>
-              <Link
-                href='/Eshterak'
-                onClick={() => (
-                  resetStates(), resetTransitions(), setState("eshterak")
-                )}
+                <span className='text-primaryColor font-semibold mx-2'>
+                  اجتماع{" "}
+                </span>
+                <img src='/teenyicons_layers-union-solid.svg' alt='' />
+              </div>
+              <div
+                onClick={() => (setState("eshterak"), push("/Eshterak/result"))}
+                className={`${
+                  state == "eshterak" ? "bg-secondaryColor" : "bg-darkColor"
+                } h-1/3 cursor-pointer hover:translate-x-2 hover:bg-secondaryColor transition-transform flex items-center justify-center`}
               >
-                <div
-                  className={`${
-                    state == "eshterak" ? "bg-secondaryColor" : "bg-darkColor"
-                  } h-1/3 cursor-pointer hover:translate-x-2 hover:bg-secondaryColor transition-transform flex items-center justify-center`}
-                >
-                  <span className='text-primaryColor font-semibold mx-2'>
-                    اشتراک{" "}
-                  </span>
-                  <img src='/icon-park-solid_intersection.svg' alt='' />
-                </div>
-              </Link>
-              <Link
-                href='/Tafazol'
-                onClick={() => (
-                  resetStates(), resetTransitions(), setState("tafazol")
-                )}
+                <span className='text-primaryColor font-semibold mx-2'>
+                  اشتراک{" "}
+                </span>
+                <img src='/icon-park-solid_intersection.svg' alt='' />
+              </div>
+
+              <div
+                onClick={() => (setState("tafazol"), push("/Tafazol/result"))}
+                className={`${
+                  state == "tafazol" ? "bg-secondaryColor" : "bg-darkColor"
+                } h-1/3 cursor-pointer hover:translate-x-2 hover:bg-secondaryColor transition-transform flex items-center justify-center`}
               >
-                <div
-                  className={`${
-                    state == "tafazol" ? "bg-secondaryColor" : "bg-darkColor"
-                  } h-1/3 cursor-pointer hover:translate-x-2 hover:bg-secondaryColor transition-transform flex items-center justify-center`}
-                >
-                  <span className='text-primaryColor font-semibold mx-2'>
-                    تفاضل{" "}
-                  </span>
-                  <img src='/subway_subtraction-1.svg' alt='' />
-                </div>
-              </Link>
+                <span className='text-primaryColor font-semibold mx-2'>
+                  تفاضل{" "}
+                </span>
+                <img src='/subway_subtraction-1.svg' alt='' />
+              </div>
             </div>
           </div>
           {/* end of the drop down */}
