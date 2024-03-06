@@ -14,15 +14,16 @@ export default function Home() {
         Automata Maker
       </p>
 
-      {/* <p className='absolute z-30 text-center text-primaryColor text-5xl font-bold w-full mt-[25rem]'>
-        همین حالا ماشین بساز
-      </p> */}
+      <p className='absolute z-30 text-center text-primaryColor text-3xl font-bold w-full top-[21%]'>
+        ساخت راحت ، تبدیل سریع
+      </p>
+      
       <TypeAnimation
-        className='absolute z-30 text-center text-5xl font-bold w-full mt-[25rem]'
+        className='absolute z-30 text-center text-5xl font-bold w-full bottom-[45%]'
         sequence={[1000, "همین حالا ماشین خودتو بساز"]}
         wrapper='span'
         cursor={true}
-        speed={20}
+        speed={22}
         style={{ fontSize: "3rem", display: "inline-block", color: "#F4CE14" }}
       />
 
@@ -37,7 +38,7 @@ export default function Home() {
 
         <Link
           href={"/AutomataMaker"}
-          className='btnfos btnfos-1 absolute z-30 top-[57%] right-1/2 translate-x-1/2 bg-primaryColor/70 text-center rounded-xl overflow-hidden'
+          className='btnfos btnfos-1 absolute z-30 top-[60%] right-1/2 translate-x-1/2 bg-primaryColor/70 text-center rounded-xl overflow-hidden'
         >
           <svg>
             <rect x='0' y='0' fill='none' width='100%' height='100%' />
