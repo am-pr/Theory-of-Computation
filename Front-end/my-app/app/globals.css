@@ -14,7 +14,6 @@
         --darkMediumColor:#57595D;
         --darkColor:#45474B;
         --lightColor: #F5F7F8;
-        --font-vazir: 
     }
 
     /* #region Styles for the costume button  */
@@ -32,6 +31,10 @@
         text-transform: uppercase;
         vertical-align: middle;
         width: 100%;
+      }
+      .btnfos:active{
+        scale:1.5;
+        transition: all 0.2s ease-in-out;
       }
       @media (min-width: 400px) {
         .btnfos {

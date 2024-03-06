@@ -47,7 +47,7 @@ export default function Home() {
       </div>
 
       <a
-        className='absolute z-30 text-primaryColor text-3xl font-bold w-full mt-[44rem] pl-10 '
+        className='absolute z-30 text-primaryColor text-3xl font-bold w-full bottom-[7%] pl-10 '
         href='#'
       >
         این سایت چیکار می کنه؟{" "}

@@ -141,11 +141,7 @@ const SideBar: FC = () => {
         </section>
       </nav>
       {/* for the colored part  */}
-      <main className='bg-darkColor hidden md:block absolute top-0 w-full h-[560px] overflow-x-hidden -z-10'>
-        <h1 className='text-primaryColor text-4xl font-bold relative left-10 top-5'>
-          ماشین
-        </h1>
-      </main>
+      <main className='bg-darkColor hidden md:block absolute top-0 w-full h-[560px] overflow-x-hidden -z-10'></main>
       {/* end of the colored part  */}
     </>
   );

@@ -11,7 +11,7 @@ const MainFrame: FC<MainFrameProps> = ({
 }: MainFrameProps) => {
   return (
     <main
-      className={`hidden md:block bg-lightColor h-min md:p-2 lg:p-4 xl:p-6 relative lg:left-16 xl:left-40 md:left-6 md:w-[60%] top-[340px] lg:w-2/3 shadow-[0_0_25px_0_rgba(0,0,0,0.15)] rounded-lg ${className}`}
+      className={`hidden md:block bg-lightColor h-min md:p-2 lg:p-4 xl:p-6 absolute lg:left-16 xl:left-40 md:left-6 md:w-[60%] top-[27%] lg:w-2/3 shadow-[0_0_25px_0_rgba(0,0,0,0.15)] rounded-lg ${className}`}
     >
       {children}
     </main>
