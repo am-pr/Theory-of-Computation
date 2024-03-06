@@ -1,12 +1,11 @@
+"use client";
 // TODO main page of the app should be designed here
 import React from "react";
 
-import MainFrame from "@/components/MainFrame";
 import background from "@/public/background/background.jpg";
 import Image from "next/image";
-import { Button } from "@nextui-org/react";
 import Link from "next/link";
-// import '../public/buttonCss/'
+import { TypeAnimation } from "react-type-animation";
 
 export default function Home() {
   return (
@@ -14,10 +13,20 @@ export default function Home() {
       <p className='absolute z-30 text-center text-primaryColor text-8xl font-bold w-full mt-16'>
         Automata Maker
       </p>
-      <p className='absolute z-30 text-center text-primaryColor text-5xl font-bold w-full mt-[25rem]'>
+
+      {/* <p className='absolute z-30 text-center text-primaryColor text-5xl font-bold w-full mt-[25rem]'>
         همین حالا ماشین بساز
-      </p>
-      <div className='w-full items-center flex justify-center '>
+      </p> */}
+      <TypeAnimation
+        className='absolute z-30 text-center text-5xl font-bold w-full mt-[25rem]'
+        sequence={[1000, "همین حالا ماشین خودتو بساز"]}
+        wrapper='span'
+        cursor={true}
+        speed={20}
+        style={{ fontSize: "3rem", display: "inline-block", color: "#F4CE14" }}
+      />
+
+      <div className='w-full items-center flex justify-center'>
         {/* <Button
           variant='shadow'
           className='absolute z-30 bg-primaryColor/70 border-white mt-[61rem] border-solid border-2 '
@@ -28,7 +37,7 @@ export default function Home() {
 
         <Link
           href={"/AutomataMaker"}
-          className='btnfos btnfos-1 absolute z-30 mt-[62rem] bg-primaryColor/70 text-center rounded-xl overflow-hidden'
+          className='btnfos btnfos-1 absolute z-30 top-[57%] right-1/2 translate-x-1/2 bg-primaryColor/70 text-center rounded-xl overflow-hidden'
         >
           <svg>
             <rect x='0' y='0' fill='none' width='100%' height='100%' />

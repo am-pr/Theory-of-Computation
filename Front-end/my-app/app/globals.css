@@ -19,6 +19,7 @@
 
     /* #region Styles for the costume button  */
     .btnfos {
+      scale: 1.4;
         color: #fff;
         cursor: pointer;
         display: block;
@@ -52,7 +53,7 @@
       
       .btnfos-1 {
         background: #3498db;
-        font-weight: 100;
+        font-weight: 600;
       }
       .btnfos-1 svg {
         position: absolute;
@@ -70,7 +71,6 @@
       
       .btnfos-1:hover {
         background: rgba(225, 51, 45, 0);
-        letter-spacing: 1px;
         font-weight: 900;
       }
       .btnfos-1:hover rect {
