@@ -3,6 +3,7 @@ import React from "react";
 import background from "@/public/background/background.jpg";
 import Image from "next/image";
 import { Button } from "@nextui-org/react";
+import Link from "next/link";
 // import '../public/buttonCss/'
 
 export default function Home() {
@@ -15,19 +16,23 @@ export default function Home() {
         همین حالا ماشین بساز
       </p>
       <div className='w-full items-center flex justify-center '>
-        <Button
+        {/* <Button
+          variant='shadow'
           className='absolute z-30 bg-primaryColor/70 border-white mt-[61rem] border-solid border-2 '
           size='lg'
         >
           <p className='text-white text-xl'>رسم ماشین</p>
-        </Button>
+        </Button> */}
 
-        {/* <a class="btnfos btnfos-1">
+        <Link
+          href={"/AutomataMaker"}
+          className='btnfos btnfos-1 absolute z-30 mt-[62rem] bg-primaryColor/70 text-center rounded-xl overflow-hidden'
+        >
           <svg>
-            <rect x="0" y="0" fill="none" width="100%" height="100%"/>
+            <rect x='0' y='0' fill='none' width='100%' height='100%' />
           </svg>
-          Hover
-        </a>  */}
+          رسم ماشین
+        </Link>
       </div>
 
       <a
