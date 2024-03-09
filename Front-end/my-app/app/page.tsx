@@ -2,7 +2,7 @@
 // TODO main page of the app should be designed here
 import React from "react";
 
-import background from "@/public/background/background.jpg";
+import background from "@/public/homepage/background/background.jpg";
 import Image from "next/image";
 import Link from "next/link";
 import { TypeAnimation } from "react-type-animation";
