@@ -72,3 +72,43 @@ E:\Computer\proj\InvisibleGang\Back-end\Invisibles\bin\Debug\net7.0\FluentValida
 E:\Computer\proj\InvisibleGang\Back-end\Invisibles\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
 E:\Computer\proj\InvisibleGang\Back-end\Invisibles\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
 E:\Computer\proj\InvisibleGang\Back-end\Invisibles\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\Amirreza\Desktop\Theory of computation\Theory-of-Computation\Back-end\Invisibles\bin\Debug\net7.0\appsettings.Development.json
+C:\Users\Amirreza\Desktop\Theory of computation\Theory-of-Computation\Back-end\Invisibles\bin\Debug\net7.0\appsettings.json
+C:\Users\Amirreza\Desktop\Theory of computation\Theory-of-Computation\Back-end\Invisibles\bin\Debug\net7.0\Invisibles.exe
+C:\Users\Amirreza\Desktop\Theory of computation\Theory-of-Computation\Back-end\Invisibles\bin\Debug\net7.0\Invisibles.deps.json
+C:\Users\Amirreza\Desktop\Theory of computation\Theory-of-Computation\Back-end\Invisibles\bin\Debug\net7.0\Invisibles.runtimeconfig.json
+C:\Users\Amirreza\Desktop\Theory of computation\Theory-of-Computation\Back-end\Invisibles\bin\Debug\net7.0\Invisibles.dll
+C:\Users\Amirreza\Desktop\Theory of computation\Theory-of-Computation\Back-end\Invisibles\bin\Debug\net7.0\Invisibles.pdb
+C:\Users\Amirreza\Desktop\Theory of computation\Theory-of-Computation\Back-end\Invisibles\bin\Debug\net7.0\AutoMapper.dll
+C:\Users\Amirreza\Desktop\Theory of computation\Theory-of-Computation\Back-end\Invisibles\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\Amirreza\Desktop\Theory of computation\Theory-of-Computation\Back-end\Invisibles\bin\Debug\net7.0\FluentValidation.dll
+C:\Users\Amirreza\Desktop\Theory of computation\Theory-of-Computation\Back-end\Invisibles\bin\Debug\net7.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\Amirreza\Desktop\Theory of computation\Theory-of-Computation\Back-end\Invisibles\bin\Debug\net7.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\Amirreza\Desktop\Theory of computation\Theory-of-Computation\Back-end\Invisibles\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\Amirreza\Desktop\Theory of computation\Theory-of-Computation\Back-end\Invisibles\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Amirreza\Desktop\Theory of computation\Theory-of-Computation\Back-end\Invisibles\bin\Debug\net7.0\Microsoft.OpenApi.dll
+C:\Users\Amirreza\Desktop\Theory of computation\Theory-of-Computation\Back-end\Invisibles\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\Amirreza\Desktop\Theory of computation\Theory-of-Computation\Back-end\Invisibles\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Amirreza\Desktop\Theory of computation\Theory-of-Computation\Back-end\Invisibles\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Amirreza\Desktop\Theory of computation\Theory-of-Computation\Back-end\Invisibles\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Amirreza\Desktop\Theory of computation\Theory-of-Computation\Back-end\Invisibles\obj\Debug\net7.0\Invisibles.csproj.AssemblyReference.cache
+C:\Users\Amirreza\Desktop\Theory of computation\Theory-of-Computation\Back-end\Invisibles\obj\Debug\net7.0\Invisibles.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Amirreza\Desktop\Theory of computation\Theory-of-Computation\Back-end\Invisibles\obj\Debug\net7.0\Invisibles.AssemblyInfoInputs.cache
+C:\Users\Amirreza\Desktop\Theory of computation\Theory-of-Computation\Back-end\Invisibles\obj\Debug\net7.0\Invisibles.AssemblyInfo.cs
+C:\Users\Amirreza\Desktop\Theory of computation\Theory-of-Computation\Back-end\Invisibles\obj\Debug\net7.0\Invisibles.csproj.CoreCompileInputs.cache
+C:\Users\Amirreza\Desktop\Theory of computation\Theory-of-Computation\Back-end\Invisibles\obj\Debug\net7.0\Invisibles.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Amirreza\Desktop\Theory of computation\Theory-of-Computation\Back-end\Invisibles\obj\Debug\net7.0\Invisibles.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Amirreza\Desktop\Theory of computation\Theory-of-Computation\Back-end\Invisibles\obj\Debug\net7.0\staticwebassets\msbuild.Invisibles.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Amirreza\Desktop\Theory of computation\Theory-of-Computation\Back-end\Invisibles\obj\Debug\net7.0\staticwebassets\msbuild.build.Invisibles.props
+C:\Users\Amirreza\Desktop\Theory of computation\Theory-of-Computation\Back-end\Invisibles\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.Invisibles.props
+C:\Users\Amirreza\Desktop\Theory of computation\Theory-of-Computation\Back-end\Invisibles\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.Invisibles.props
+C:\Users\Amirreza\Desktop\Theory of computation\Theory-of-Computation\Back-end\Invisibles\obj\Debug\net7.0\staticwebassets.pack.json
+C:\Users\Amirreza\Desktop\Theory of computation\Theory-of-Computation\Back-end\Invisibles\obj\Debug\net7.0\staticwebassets.build.json
+C:\Users\Amirreza\Desktop\Theory of computation\Theory-of-Computation\Back-end\Invisibles\obj\Debug\net7.0\staticwebassets.development.json
+C:\Users\Amirreza\Desktop\Theory of computation\Theory-of-Computation\Back-end\Invisibles\obj\Debug\net7.0\scopedcss\bundle\Invisibles.styles.css
+C:\Users\Amirreza\Desktop\Theory of computation\Theory-of-Computation\Back-end\Invisibles\obj\Debug\net7.0\Invisibles.csproj.CopyComplete
+C:\Users\Amirreza\Desktop\Theory of computation\Theory-of-Computation\Back-end\Invisibles\obj\Debug\net7.0\Invisibles.dll
+C:\Users\Amirreza\Desktop\Theory of computation\Theory-of-Computation\Back-end\Invisibles\obj\Debug\net7.0\refint\Invisibles.dll
+C:\Users\Amirreza\Desktop\Theory of computation\Theory-of-Computation\Back-end\Invisibles\obj\Debug\net7.0\Invisibles.pdb
+C:\Users\Amirreza\Desktop\Theory of computation\Theory-of-Computation\Back-end\Invisibles\obj\Debug\net7.0\Invisibles.genruntimeconfig.cache
+C:\Users\Amirreza\Desktop\Theory of computation\Theory-of-Computation\Back-end\Invisibles\obj\Debug\net7.0\ref\Invisibles.dll
