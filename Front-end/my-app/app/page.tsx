@@ -18,7 +18,7 @@ const imgVariants = {
     opacity: 1,
     color: "#f4ce14",
     transition: {
-      delay: 1,
+      delay: 0.6,
       duration: 1,
     },
   },
@@ -38,7 +38,8 @@ export default function Home() {
 
         <TypeAnimation
           className='absolute z-30 text-center text-5xl font-bold w-full bottom-[45%]'
-          sequence={[1000, "همین حالا ماشین خودتو بساز"]}
+          sequence={[300, "همین حالا", 555, "ماشین خودتو بساز"]}
+          deletionSpeed={44}
           wrapper='span'
           cursor={true}
           speed={22}
@@ -79,7 +80,7 @@ export default function Home() {
         />
         {/* #endregion */}
       </main>
-      <main className='bg-darkMediumColor h-screen'>
+      <main className='bg-darkColor h-screen'>
         <motion.p
           className='text-primaryColor text-5xl w-full text-center p-14 pt-20 font-bold'
           initial={{ opacity: 0, y: 100 }}
@@ -93,60 +94,57 @@ export default function Home() {
         </motion.p>
         <div className='flex justify-center items-center'>
           <div className='grid grid-cols-3 gap-48'>
-            <div>
-              <Link
-                className='flex flex-col justify-center items-center'
-                href={"/Paziresh"}
+            <Link
+              className='flex flex-col justify-center items-center'
+              href={"/Paziresh"}
+            >
+              <motion.img
+                variants={imgVariants}
+                whileInView='visible'
+                initial='hidden'
+                src='/homepage/icons/stringAccepterIcon.svg'
+                alt='stringAccepter icon'
+                height='180px'
+                width='180px'
+              />
+              <motion.p
+                initial={{ opacity: 0, y: -100 }}
+                transition={{ duration: 1, type: "spring", stiffness: 50 }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                className='text-white w-[180px] text-center mt-4 font-bold'
               >
-                <motion.img
-                  variants={imgVariants}
-                  whileInView='visible'
-                  initial='hidden'
-                  src='/homepage/icons/stringAccepterIcon.svg'
-                  alt='stringAccepter icon'
-                  height='180px'
-                  width='180px'
-                />
-                <motion.p
-                  initial={{ opacity: 0, y: -100 }}
-                  transition={{ duration: 1, type: "spring", stiffness: 50 }}
-                  whileInView={{
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  className='text-white w-[180px] text-center mt-4 font-bold'
-                >
-                  پذیرش رشته
-                </motion.p>
-              </Link>
-            </div>
-            <div>
-              <Link
-                className='flex flex-col justify-center items-center'
-                href={"/Minimize"}
+                پذیرش رشته
+              </motion.p>
+            </Link>
+
+            <Link
+              className='flex flex-col justify-center items-center'
+              href={"/Minimize"}
+            >
+              <motion.img
+                variants={imgVariants}
+                whileInView='visible'
+                initial='hidden'
+                src='/homepage/icons/minimizeIcon.svg'
+                alt='minimize icon'
+                height='160px'
+                width='160px'
+              />
+              <motion.p
+                initial={{ opacity: 0, y: -100 }}
+                transition={{ duration: 1, type: "spring", stiffness: 50 }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                className='text-white w-[180px] text-center mt-6 font-bold'
               >
-                <motion.img
-                  variants={imgVariants}
-                  whileInView='visible'
-                  initial='hidden'
-                  src='/homepage/icons/minimizeIcon.svg'
-                  alt='minimize icon'
-                  height='160px'
-                  width='160px'
-                />
-                <motion.p
-                  initial={{ opacity: 0, y: -100 }}
-                  transition={{ duration: 1, type: "spring", stiffness: 50 }}
-                  whileInView={{
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  className='text-white w-[180px] text-center mt-6 font-bold'
-                >
-                  مینیمایز کردن
-                </motion.p>
-              </Link>
-            </div>
+                مینیمایز کردن
+              </motion.p>
+            </Link>
             <div>
               <Link
                 className='flex flex-col justify-center items-center'
