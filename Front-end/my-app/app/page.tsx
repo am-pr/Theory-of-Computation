@@ -1,9 +1,4 @@
 "use client";
-// TODO main page of the app should be designed here
-import React from "react";
-
-import background from "@/public/homepage/background/background.jpg";
-import Image from "next/image";
 import Link from "next/link";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
@@ -27,7 +22,7 @@ const imgVariants = {
 export default function Home() {
   return (
     <>
-      <main>
+      <main className='h-screen w-full bg-[url("../public/homepage/background/background.jpg")] bg-cover bg-fixed'>
         <p className='absolute z-30 text-center text-primaryColor text-8xl font-bold w-full mt-16'>
           Automata Maker
         </p>
@@ -72,14 +67,9 @@ export default function Home() {
         {/* #region background filters */}
         <div className='w-full h-screen bg-[#45474B]/25 z-20 absolute' />
         <div className='w-full h-screen bg-black/65 z-10 absolute' />
-        <Image
-          src={background}
-          alt='background'
-          className='w-full h-screen z-0'
-          quality={100}
-        />
         {/* #endregion */}
       </main>
+
       <main className='bg-darkColor h-screen'>
         <motion.p
           className='text-primaryColor text-5xl w-full text-center p-14 pt-20 font-bold'
