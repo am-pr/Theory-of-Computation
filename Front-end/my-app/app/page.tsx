@@ -1,25 +1,17 @@
 "use client";
+import { Button } from "@mantine/core";
+import SecondPage from "./secondPage";
 import Link from "next/link";
 import { TypeAnimation } from "react-type-animation";
-import { motion } from "framer-motion";
-
-//motion variants :
-const imgVariants = {
-  hidden: {
-    opacity: 0,
-    color: "rgba(0,0,0,0)",
-  },
-  visible: {
-    opacity: 1,
-    color: "#f4ce14",
-    transition: {
-      delay: 0.6,
-      duration: 1,
-    },
-  },
-};
+import { useHover, useScrollIntoView } from "@mantine/hooks";
 
 export default function Home() {
+  const { hovered, ref } = useHover();
+  const { scrollIntoView, targetRef } = useScrollIntoView<HTMLDivElement>({
+    offset: 60,
+    duration: 2900,
+  });
+
   return (
     <>
       <main className='h-screen w-full bg-[url("../public/homepage/background/background.jpg")] bg-cover bg-fixed'>
@@ -57,12 +49,17 @@ export default function Home() {
           </Link>
         </div>
 
-        <a
-          className='absolute z-30 text-primaryColor text-3xl font-bold w-full bottom-[7%] pl-10 '
-          href='#'
+        <p
+          className='absolute z-30 text-primaryColor text-3xl font-bold w-full bottom-[7%] pl-10 
+          underline underline-offset-[0.9rem] hover:text-primaryColorLight hover:cursor-pointer'
+          onClick={() =>
+            scrollIntoView({
+              alignment: "center",
+            })
+          }
         >
           این سایت چیکار می کنه؟
-        </a>
+        </p>
 
         {/* #region background filters */}
         <div className='w-full h-screen bg-[#45474B]/25 z-20 absolute' />
@@ -70,187 +67,24 @@ export default function Home() {
         {/* #endregion */}
       </main>
 
-      <main className='bg-darkColor h-screen'>
-        <motion.p
-          className='text-primaryColor text-5xl w-full text-center p-14 pt-20 font-bold'
-          initial={{ opacity: 0, y: 100 }}
-          transition={{ duration: 0.5, type: "spring", stiffness: 200 }}
-          whileInView={{
-            opacity: 1,
-            y: "0",
-          }}
-        >
-          عملگـــرها
-        </motion.p>
-        <div className='flex justify-center items-center'>
-          <div className='grid grid-cols-3 gap-48'>
-            <Link
-              className='flex flex-col justify-center items-center'
-              href={"/Paziresh"}
-            >
-              <motion.img
-                variants={imgVariants}
-                whileInView='visible'
-                initial='hidden'
-                src='/homepage/icons/stringAccepterIcon.svg'
-                alt='stringAccepter icon'
-                height='180px'
-                width='180px'
-              />
-              <motion.p
-                initial={{ opacity: 0, y: -100 }}
-                transition={{ duration: 1, type: "spring", stiffness: 50 }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                className='text-white w-[180px] text-center mt-4 font-bold'
-              >
-                پذیرش رشته
-              </motion.p>
-            </Link>
+      <SecondPage />
 
-            <Link
-              className='flex flex-col justify-center items-center'
-              href={"/Minimize"}
-            >
-              <motion.img
-                variants={imgVariants}
-                whileInView='visible'
-                initial='hidden'
-                src='/homepage/icons/minimizeIcon.svg'
-                alt='minimize icon'
-                height='160px'
-                width='160px'
-              />
-              <motion.p
-                initial={{ opacity: 0, y: -100 }}
-                transition={{ duration: 1, type: "spring", stiffness: 50 }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                className='text-white w-[180px] text-center mt-6 font-bold'
-              >
-                مینیمایز کردن
-              </motion.p>
-            </Link>
-            <div>
-              <Link
-                className='flex flex-col justify-center items-center'
-                href={"/Compliment"}
-              >
-                <motion.img
-                  variants={imgVariants}
-                  whileInView='visible'
-                  initial='hidden'
-                  src='/homepage/icons/complimentIcon.svg'
-                  alt='compliment icon'
-                  height='150px'
-                  width='150px'
-                />
-                <motion.p
-                  className='text-white w-[180px] text-center mt-6 font-bold'
-                  initial={{ opacity: 0, y: -100 }}
-                  transition={{ duration: 1, type: "spring", stiffness: 50 }}
-                  whileInView={{
-                    opacity: 1,
-                    y: 0,
-                  }}
-                >
-                  متمم گرفتن
-                </motion.p>
-              </Link>
-            </div>
-          </div>
-        </div>
+      <main className=' w-full h-screen bg-darkColor' ref={targetRef}>
+        <div className='w-full h-screen flex justify-center items-center'>
+          <picture ref={ref}>
+            <img
+              src='https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.gif'
+              alt='🤔'
+              width='250'
+              height='250'
+            />
 
-        <motion.p
-          className='text-primaryColor text-5xl w-full text-center p-14 font-bold'
-          initial={{ opacity: 0, y: 100 }}
-          transition={{ duration: 0.5, type: "spring", stiffness: 200 }}
-          whileInView={{
-            opacity: 1,
-            y: "0",
-          }}
-        >
-          ابـــــــــزار ها
-        </motion.p>
-        <div className='flex justify-center  '>
-          <div className='grid grid-cols-3 gap-48 '>
-            <div className='flex justify-center '>
-              <Link href={"/Ejtema"}>
-                <motion.img
-                  variants={imgVariants}
-                  whileInView='visible'
-                  initial='hidden'
-                  src='/homepage/icons/unionIcon.svg'
-                  alt='union icon'
-                  height='180px'
-                  width='180px'
-                />
-                <motion.p
-                  initial={{ opacity: 0, y: -100 }}
-                  transition={{ duration: 1, type: "spring", stiffness: 50 }}
-                  whileInView={{
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  className='text-white w-[180px] text-center mt-6 font-bold'
-                >
-                  اجتماع
-                </motion.p>
-              </Link>
-            </div>
-            <div className='flex justify-center'>
-              <Link href={"/Eshterak"}>
-                <motion.img
-                  variants={imgVariants}
-                  whileInView='visible'
-                  initial='hidden'
-                  src='/homepage/icons/intersectionIcon.svg'
-                  alt='intersection icon'
-                  height='160px'
-                  width='160px'
-                />
-                <motion.p
-                  initial={{ opacity: 0, y: -100 }}
-                  transition={{ duration: 1, type: "spring", stiffness: 50 }}
-                  whileInView={{
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  className='text-white w-[180px] text-center mt-6 font-bold'
-                >
-                  اشتراک
-                </motion.p>
-              </Link>
-            </div>
-            <div className='flex justify-center'>
-              <Link href={"/Tafazol"}>
-                <motion.img
-                  variants={imgVariants}
-                  whileInView='visible'
-                  initial='hidden'
-                  src='/homepage/icons/minusIcon.svg'
-                  alt='minus icon'
-                  height='150px'
-                  width='150px'
-                />
-                <motion.p
-                  initial={{ opacity: 0, y: -100 }}
-                  transition={{ duration: 1, type: "spring", stiffness: 50 }}
-                  whileInView={{
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  className='text-white w-[180px] text-center mt-6 font-bold'
-                >
-                  تفاضل
-                </motion.p>
-              </Link>
-            </div>
-          </div>
+            {/* { hovered ?
+          <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.gif" alt="🤔" width="100" height="100"/>
+          :
+          <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/emoji.svg" alt="ss" width="100" height="100"/>
+        } */}
+          </picture>
         </div>
       </main>
     </>

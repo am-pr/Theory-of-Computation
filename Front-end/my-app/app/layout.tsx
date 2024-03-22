@@ -5,6 +5,8 @@ import { Providers } from "./provider";
 import MobileNav from "../components/MobileNav";
 import SideBar from "@/components/SideBar";
 import LoadingBar from "@/components/LoadingBar";
+import "@mantine/core/styles.css";
+import { ColorSchemeScript, MantineProvider } from "@mantine/core";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,16 +23,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en' className='light'>
+      <head>
+        <ColorSchemeScript />
+      </head>
       <body
         style={{ fontFamily: "vazir" }}
         className={`${inter.className} w-full`}
       >
-        <Providers>
-          <LoadingBar />
-          <SideBar />
-          {children}
-          <MobileNav />
-        </Providers>
+        <MantineProvider>
+          <Providers>
+            <LoadingBar />
+            <SideBar />
+            {children}
+            <MobileNav />
+          </Providers>
+        </MantineProvider>
       </body>
     </html>
   );
