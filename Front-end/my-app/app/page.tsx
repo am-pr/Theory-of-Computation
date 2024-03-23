@@ -2,9 +2,9 @@
 import Link from "next/link";
 import { TypeAnimation } from "react-type-animation";
 import { useScrollIntoView } from "@mantine/hooks";
-import SecondPage from "./secondPage";
-import ThirdPage from "./thirdPage";
-import Footer from "./footer";
+import SecondPage from "../components/Home/secondPage";
+import ThirdPage from "../components/Home/thirdPage";
+import Footer from "../components/footer";
 
 export default function Home() {
   const { scrollIntoView, targetRef } = useScrollIntoView<HTMLDivElement>({
