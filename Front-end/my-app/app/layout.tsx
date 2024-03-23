@@ -21,6 +21,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en' className='light'>
+      <head>
+        <link rel='icon' href='/favicon.ico' sizes='any' />
+      </head>
+
       <body
         style={{ fontFamily: "vazir" }}
         className={`${inter.className} w-full`}
