@@ -1,12 +1,12 @@
 "use client";
-import { Button } from "@mantine/core";
-import SecondPage from "./secondPage";
 import Link from "next/link";
 import { TypeAnimation } from "react-type-animation";
-import { useHover, useScrollIntoView } from "@mantine/hooks";
+import { useScrollIntoView } from "@mantine/hooks";
+import SecondPage from "./secondPage";
+import ThirdPage from "./thirdPage";
+import Footer from "./footer";
 
 export default function Home() {
-  const { hovered, ref } = useHover();
   const { scrollIntoView, targetRef } = useScrollIntoView<HTMLDivElement>({
     offset: 60,
     duration: 2900,
@@ -69,24 +69,11 @@ export default function Home() {
 
       <SecondPage />
 
-      <main className=' w-full h-screen bg-darkColor' ref={targetRef}>
-        <div className='w-full h-screen flex justify-center items-center'>
-          <picture ref={ref}>
-            <img
-              src='https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.gif'
-              alt='🤔'
-              width='250'
-              height='250'
-            />
+      <div ref={targetRef}>
+        <ThirdPage />
+      </div>
 
-            {/* { hovered ?
-          <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/512.gif" alt="🤔" width="100" height="100"/>
-          :
-          <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f914/emoji.svg" alt="ss" width="100" height="100"/>
-        } */}
-          </picture>
-        </div>
-      </main>
+      <Footer />
     </>
   );
 }

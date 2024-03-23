@@ -85,4 +85,58 @@
                 transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
       }
       /* #endregion */
+
+      
+
+      .label {
+        text-align: center;
+        margin-right: 0.8rem;
+        font-size: large;
+      }
+
+      .icon {
+        position: relative;
+        left: 235px;
+      }
+
+      .root {
+
+        border-radius: var(--mantine-radius-sm);
+        background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6));
+        text-align: center;
+        
+      }
+      
+      .item {
+        background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6));
+        border: rem(1px) solid transparent;
+        position: relative;
+        z-index: 0;
+        transition: transform 150ms ease;
+        text-align: center;
+        color: navy;
+        
+      
+        &[data-active] {
+          transform: scale(1.03);
+          z-index: 1;
+          background-color: var(--mantine-color-body);
+          border-color: light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-4));
+          box-shadow: var(--mantine-shadow-md);
+          border-radius: var(--mantine-radius-md);
+          text-align: center;
+          font-size: large;
+
+          
+          
+        }
+      }
+      
+      .chevron {
+        &[data-rotate] {
+          transform: rotate(-90deg);
+          text-align: center;
+
+        }
+      }
 }
